@@ -918,3 +918,16 @@
     margin-left:0;
   }
 }
+
+
+/* v27: お知らせラベルをカテゴリ別に色分け（塗り背景 + 白文字） */
+.jbs-newslabel{
+  color:#fff !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+.jbs-newslabel.is-meeting{ background:#2F6FB0 !important; }
+.jbs-newslabel.is-member{ background:#6B7280 !important; }
+.jbs-newslabel.is-title{ background:#D71161 !important; }
+.jbs-newslabel.is-event{ background:#D97706 !important; }
+.jbs-newslabel.is-national{ background:#008A68 !important; }
