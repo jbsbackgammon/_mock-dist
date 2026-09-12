@@ -1272,3 +1272,16 @@
     min-height:34px !important;
   }
 }
+
+
+/* v34: 各タイトル右リンクの矢印を「＞ リンク名」の順に統一 */
+.jbs-more::after{
+  content:none !important;
+  display:none !important;
+}
+.jbs-more::before{
+  content:"＞" !important;
+  display:inline-block !important;
+  margin-right:4px;
+  margin-left:0;
+}
