@@ -1650,3 +1650,79 @@
     padding-bottom:5px !important;
   }
 }
+
+
+/* ==========================================================================
+   v40
+   ========================================================================== */
+
+/* 各タイトルと「＞ リンク」の間隔を少し広げる */
+.jbs-sec__hd{
+  gap:12px !important;
+}
+
+/* お知らせ：日付・ラベル・タイトル間を少し詰める */
+.jbs-newslist--notice > li > a{
+  column-gap:6px !important;
+}
+
+/* SPのお知らせはタイトルを省略せず、セル内で折り返して全文表示 */
+@media (max-width:600px){
+  .jbs-newslist--notice > li,
+  .jbs-newslist--notice > li > a{
+    height:auto !important;
+    min-height:34px !important;
+  }
+  .jbs-newslist--notice > li > a{
+    column-gap:4px !important;
+    padding-top:6px !important;
+    padding-bottom:6px !important;
+    align-items:start !important;
+  }
+  .jbs-newslist--notice .jbs-newsline__title{
+    overflow:visible !important;
+    white-space:normal !important;
+    text-overflow:clip !important;
+    line-height:1.45 !important;
+  }
+  .jbs-newslist--notice time,
+  .jbs-newslist--notice .jbs-newslabel,
+  .jbs-newslist--notice .jbs-fresh{
+    align-self:start !important;
+    margin-top:1px;
+  }
+}
+
+/* フッター検索アイコンを確実に表示 */
+.jbs-ft--compact .jbs-ft__search button{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  color:#fff !important;
+}
+.jbs-ft--compact .jbs-ft__search button svg{
+  display:block !important;
+  width:15px !important;
+  height:15px !important;
+  fill:none !important;
+  stroke:#fff !important;
+  stroke-width:2.2 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+
+/* 下段4ブロック：名前だけ太字 */
+.jbs-dash-list,
+.jbs-dash-list *,
+.jbs-dash__rank,
+.jbs-dash__value,
+.jbs-dash__event,
+.jbs-position__choices button{
+  font-weight:400 !important;
+}
+.jbs-dash__name,
+.jbs-dash__winner{
+  font-weight:700 !important;
+}
