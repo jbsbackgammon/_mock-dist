@@ -517,3 +517,64 @@
     margin-top:72px;
   }
 }
+
+/* ヘッダーSNS：ブランドピンク（#D71161）で統一 */
+.jbs-hd__sns a{
+  position:relative;
+  color:var(--jbs-brand);
+}
+.jbs-hd__sns img{
+  /* mask未対応ブラウザ向けフォールバック */
+  filter:brightness(0) saturate(100%) invert(18%) sepia(96%) saturate(4284%) hue-rotate(326deg) brightness(89%) contrast(98%) !important;
+}
+@supports ((-webkit-mask-image:url("")) or (mask-image:url(""))){
+  .jbs-hd__sns img{
+    opacity:0 !important;
+  }
+  .jbs-hd__sns a::before{
+    content:"";
+    position:absolute;
+    inset:1px;
+    background:var(--jbs-brand);
+    -webkit-mask-repeat:no-repeat;
+    mask-repeat:no-repeat;
+    -webkit-mask-position:center;
+    mask-position:center;
+    -webkit-mask-size:contain;
+    mask-size:contain;
+  }
+  .jbs-hd__sns a[aria-label="YouTube"]::before{
+    -webkit-mask-image:url("https://backgammon.or.jp/wp-content/uploads/2025/07/logo-youtube-50.png");
+    mask-image:url("https://backgammon.or.jp/wp-content/uploads/2025/07/logo-youtube-50.png");
+  }
+  .jbs-hd__sns a[aria-label="X"]::before{
+    -webkit-mask-image:url("https://backgammon.or.jp/wp-content/uploads/2025/07/logo-x-50.png");
+    mask-image:url("https://backgammon.or.jp/wp-content/uploads/2025/07/logo-x-50.png");
+  }
+  .jbs-hd__sns a[aria-label="Instagram"]::before{
+    -webkit-mask-image:url("https://backgammon.or.jp/wp-content/uploads/2025/07/logo-instagram-50.png");
+    mask-image:url("https://backgammon.or.jp/wp-content/uploads/2025/07/logo-instagram-50.png");
+  }
+  .jbs-hd__sns a[aria-label="Facebook"]::before{
+    -webkit-mask-image:url("https://backgammon.or.jp/wp-content/uploads/2025/07/logo-facebook-50.png");
+    mask-image:url("https://backgammon.or.jp/wp-content/uploads/2025/07/logo-facebook-50.png");
+  }
+}
+
+/* PC版ヘッダーを70pxへコンパクト化 */
+@media (min-width:901px){
+  .jbs-hd__inner{
+    min-height:70px;
+  }
+  .jbs-hd .jbs-hd__logo img{
+    height:48px;
+  }
+  .jbs-hd__name{
+    transform:translateY(4px);
+  }
+}
+@media (min-width:901px) and (max-width:1100px){
+  .jbs-hd__name{
+    transform:translateY(5px);
+  }
+}
