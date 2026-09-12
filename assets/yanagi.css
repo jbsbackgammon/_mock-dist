@@ -2214,3 +2214,44 @@
     grid-template-columns:1fr !important;
   }
 }
+
+
+/* ==========================================================================
+   v54: 下段4カラム 1:1:1:2 / 各リンクを最終行へ
+   ========================================================================== */
+.jbs-dashboard-grid{
+  grid-template-columns:
+    minmax(0,1fr)
+    minmax(0,1fr)
+    minmax(0,1fr)
+    minmax(0,2fr) !important;
+}
+
+/* 各カード最終行のリンク */
+.jbs-dash__linkrow{
+  min-height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  border-top:1px solid var(--jbs-line-2);
+  box-sizing:border-box;
+}
+.jbs-dash__linkrow .jbs-more{
+  margin-left:0 !important;
+}
+
+/* ヘッダー内はタイトルだけになるため、右側の余白を持たせない */
+.jbs-dashboard-card .jbs-sec__hd{
+  justify-content:flex-start !important;
+}
+
+@media (max-width:1100px){
+  .jbs-dashboard-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media (max-width:600px){
+  .jbs-dashboard-grid{
+    grid-template-columns:1fr !important;
+  }
+}
