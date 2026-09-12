@@ -2520,3 +2520,11 @@ body.jbs-home{
     grid-template-columns:1fr !important;
   }
 }
+
+
+/* ==========================================================================
+   v59: ダッシュボード最終行下の罫線を1本に統一
+   ========================================================================== */
+.jbs-dashboard-card .jbs-dash-list > li:last-child{
+  border-bottom:0 !important;
+}
