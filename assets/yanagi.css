@@ -1994,3 +1994,61 @@
     padding-right:4px !important;
   }
 }
+
+
+/* ==========================================================================
+   v45
+   ========================================================================== */
+
+/* フッター：1行目を2行目と同じ高さに揃える */
+.jbs-ft--compact .jbs-ft__row--desc,
+.jbs-ft--compact .jbs-ft__row--utility{
+  min-height:28px !important;
+  box-sizing:border-box !important;
+  display:flex !important;
+  align-items:center !important;
+}
+.jbs-ft--compact .jbs-ft__row--desc{
+  margin:0 !important;
+  padding:0 !important;
+}
+.jbs-ft--compact .jbs-ft__desc{
+  line-height:1.2 !important;
+}
+
+/* お知らせ：
+   ラベル幅は共通固定のまま、
+   日付とタイトルの間で左右余白を等しくして中央に見せる */
+.jbs-newslist--notice > li > a{
+  grid-template-columns:auto 5.5em minmax(0,1fr) auto !important;
+  column-gap:0 !important;
+}
+.jbs-newslist--notice .jbs-newslabel{
+  width:5.5em !important;
+  max-width:none !important;
+  justify-self:center !important;
+  margin-left:6px !important;
+  margin-right:6px !important;
+  padding-left:4px !important;
+  padding-right:4px !important;
+}
+.jbs-newslist--notice .jbs-newsline__title{
+  margin-left:0 !important;
+  padding-left:0 !important;
+}
+
+@media (max-width:600px){
+  .jbs-ft--compact .jbs-ft__row--desc,
+  .jbs-ft--compact .jbs-ft__row--utility{
+    min-height:28px !important;
+  }
+
+  .jbs-newslist--notice > li > a{
+    column-gap:0 !important;
+  }
+  .jbs-newslist--notice .jbs-newslabel{
+    width:5.5em !important;
+    margin-left:5px !important;
+    margin-right:5px !important;
+  }
+}
