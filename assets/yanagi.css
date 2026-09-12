@@ -699,3 +699,39 @@
     gap:20px;
   }
 }
+
+
+/* v22: 情報3列の横幅比を 3:3:2 にする */
+@media (min-width:901px){
+  .jbs-newscols--triple{
+    grid-template-columns:minmax(0,3fr) minmax(0,3fr) minmax(0,2fr);
+  }
+}
+
+/* v22: 各タイトルは必ず1行。長い場合は末尾を…で省略 */
+.jbs-newslist--twoline .jbs-newslist__t{
+  display:block;
+  width:100%;
+  max-width:100%;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+/* v22: TODAYラベル */
+.jbs-newslist--twoline .jbs-tag--today{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin:0;
+  padding:1px 6px;
+  border:0;
+  border-radius:999px;
+  background:var(--jbs-brand);
+  color:#fff;
+  font-size:10px;
+  line-height:1.55;
+  font-weight:800;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
