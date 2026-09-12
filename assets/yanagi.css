@@ -1956,3 +1956,41 @@
     padding-right:5px !important;
   }
 }
+
+
+/* ==========================================================================
+   v44
+   ========================================================================== */
+
+/* お知らせ：
+   ラベルは全カテゴリ共通の固定幅へ戻し、
+   ラベル→タイトル間の余白を縮め、その分タイトル領域を広げる */
+.jbs-newslist--notice > li > a{
+  grid-template-columns:auto 5.5em minmax(0,1fr) auto !important;
+  column-gap:2px !important;
+}
+.jbs-newslist--notice .jbs-newslabel{
+  width:5.5em !important;
+  max-width:none !important;
+  justify-self:stretch !important;
+  padding-left:4px !important;
+  padding-right:4px !important;
+}
+.jbs-newslist--notice .jbs-newsline__title{
+  width:100% !important;
+  min-width:0 !important;
+  margin-left:0 !important;
+  padding-left:0 !important;
+}
+
+@media (max-width:600px){
+  .jbs-newslist--notice > li > a{
+    column-gap:2px !important;
+  }
+  .jbs-newslist--notice .jbs-newslabel{
+    width:5.5em !important;
+    max-width:none !important;
+    padding-left:4px !important;
+    padding-right:4px !important;
+  }
+}
