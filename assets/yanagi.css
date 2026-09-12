@@ -2487,3 +2487,36 @@ body.jbs-home{
     grid-template-columns:1fr !important;
   }
 }
+
+
+/* ==========================================================================
+   v58: PCメニューバー文字サイズ固定 / 下段4カラム比率調整
+   ========================================================================== */
+
+/* PCメニューバー：14pxで固定し、PC幅内のブレイクポイント差をなくす */
+@media (min-width:901px){
+  .jbs-gnav .jbs-gnav__list > li > a{
+    font-size:14px !important;
+  }
+}
+
+/* Rating : Ranking : Title holders : Position = 1.9 : 1.9 : 1.9 : 3.3 */
+.jbs-dashboard-grid{
+  grid-template-columns:
+    minmax(0,1.9fr)
+    minmax(0,1.9fr)
+    minmax(0,1.9fr)
+    minmax(0,3.3fr) !important;
+}
+
+@media (max-width:1100px){
+  .jbs-dashboard-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+@media (max-width:600px){
+  .jbs-dashboard-grid{
+    grid-template-columns:1fr !important;
+  }
+}
