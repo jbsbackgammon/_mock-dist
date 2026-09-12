@@ -83,6 +83,16 @@
   object-position:center 52%;
 }
 
+/* ヒーロー：左側の黒影は維持しつつ、写真全体を少し明るくする */
+.jbs-hero__slides img{
+  filter:brightness(1.05);
+}
+.jbs-hero__scrim{
+  background:linear-gradient(90deg,
+    rgba(16,18,21,.90) 0%, rgba(16,18,21,.80) 30%,
+    rgba(16,18,21,.46) 50%, rgba(16,18,21,.10) 74%, rgba(16,18,21,0) 100%);
+}
+
 /* フッターへ移したサイト内検索 */
 .jbs-ft__search{
   flex:0 0 auto;
@@ -113,6 +123,9 @@
 }
 
 @media (max-width:900px){
+  .jbs-hero__scrim{
+    background:linear-gradient(180deg, rgba(16,18,21,.14) 0%, rgba(16,18,21,.43) 42%, rgba(16,18,21,.78) 100%);
+  }
   .jbs-hd__name{
     font-size:15px;
     white-space:normal;
@@ -136,7 +149,7 @@
 }
 
 
-/* ヒーロー下：9:16のスライドバナー */
+/* ヒーロー下：16:9のスライドバナー */
 .jbs-vb{
   padding:18px 0 8px;
   background:#fff;
@@ -166,9 +179,9 @@
   will-change:transform;
 }
 .jbs-vb__item{
-  flex:0 0 calc((100% - 48px) / 4);
+  flex:0 0 calc((100% - 64px) / 5);
   display:block;
-  aspect-ratio:9 / 16;
+  aspect-ratio:16 / 9;
   border-radius:14px;
   overflow:hidden;
   background:#0F1217;
