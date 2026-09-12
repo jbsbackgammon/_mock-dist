@@ -1131,3 +1131,39 @@
     grid-template-columns:1fr !important;
   }
 }
+
+
+/* v31: 4カラムの各リスト先頭上にある灰色線を削除 */
+.jbs-dash-list{
+  border-top:0 !important;
+}
+
+/* v31: 第5回棋聖戦の2名の間には横線を入れない */
+.jbs-dash-list--champions > li.jbs-dash__dualwinner{
+  border-bottom:0 !important;
+}
+
+/* v31: お知らせ / 予定の全行高を完全に統一 */
+.jbs-newslist--singleline > li > a{
+  height:36px !important;
+  min-height:36px !important;
+  box-sizing:border-box;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+.jbs-newslist--singleline time{
+  padding-top:0 !important;
+  line-height:1.35;
+}
+.jbs-newslist--singleline .jbs-newsline__title,
+.jbs-newslist--singleline .jbs-newslabel,
+.jbs-newslist--singleline .jbs-fresh{
+  align-self:center;
+}
+
+@media (max-width:600px){
+  .jbs-newslist--singleline > li > a{
+    height:34px !important;
+    min-height:34px !important;
+  }
+}
