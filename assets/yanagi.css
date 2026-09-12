@@ -746,3 +746,119 @@
     margin-top:0 !important;
   }
 }
+
+
+/* v25: お知らせ + 例会・イベント予定を 6:4 の2カラムに統合 */
+.jbs-newscols--dual{
+  display:grid;
+  grid-template-columns:minmax(0,3fr) minmax(0,2fr);
+  gap:24px;
+  margin-bottom:24px;
+}
+.jbs-newscols--dual .jbs-sec{
+  min-width:0;
+  margin-bottom:0;
+}
+
+/* 各欄12行固定。13件目以降は非表示 */
+.jbs-newslist--singleline > li:nth-child(n+13){
+  display:none;
+}
+.jbs-newslist--singleline > li > a{
+  display:grid;
+  align-items:center;
+  gap:8px;
+  min-width:0;
+  min-height:36px;
+  padding:6px 4px;
+  line-height:1.35;
+}
+.jbs-newslist--singleline time{
+  color:var(--jbs-ink-3);
+  font-size:12px;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.jbs-newslist--singleline .jbs-newsline__title{
+  display:block;
+  min-width:0;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  font-size:13.5px;
+  font-weight:500;
+}
+
+/* お知らせ：日付 / 5文字幅ラベル / タイトル / NEW */
+.jbs-newslist--notice > li > a{
+  grid-template-columns:auto 5.5em minmax(0,1fr) auto;
+}
+.jbs-newslabel{
+  width:5.5em;
+  box-sizing:border-box;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:2px 4px;
+  border-radius:3px;
+  background:var(--jbs-row-hover);
+  color:var(--jbs-ink-2);
+  font-size:11px;
+  font-weight:700;
+  line-height:1.35;
+  text-align:center;
+  white-space:nowrap;
+}
+
+/* 予定：月日時 / タイトル / TODAY */
+.jbs-newslist--schedule > li > a{
+  grid-template-columns:auto minmax(0,1fr) auto;
+}
+
+.jbs-fresh{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:42px;
+  padding:2px 6px;
+  border-radius:999px;
+  font-size:10px;
+  line-height:1.4;
+  font-weight:800;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+.jbs-fresh--new,
+.jbs-fresh--today{
+  background:var(--jbs-brand);
+  color:#fff;
+}
+
+@media (max-width:900px){
+  .jbs-newscols--dual{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+}
+
+@media (max-width:600px){
+  .jbs-newslist--singleline > li > a{
+    gap:6px;
+    min-height:34px;
+    padding:5px 2px;
+  }
+  .jbs-newslist--singleline time{
+    font-size:11px;
+  }
+  .jbs-newslist--singleline .jbs-newsline__title{
+    font-size:12.5px;
+  }
+  .jbs-newslabel{
+    font-size:10px;
+  }
+  .jbs-fresh{
+    min-width:36px;
+    padding:2px 4px;
+    font-size:9px;
+  }
+}
