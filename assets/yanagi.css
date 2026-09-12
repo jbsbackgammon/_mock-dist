@@ -260,3 +260,18 @@
 /* v11: エンドレススライダー／下エリアと同じ背景 */
 .jbs-vb{ background:var(--jbs-paper); }
 .jbs-vb__nav:disabled{ opacity:1; cursor:pointer; }
+
+/* ヒーロー高さ：全画面幅で一律240px */
+.jbs-hero__inner{
+  min-height:240px !important;
+  height:240px;
+}
+@media (max-width:1080px){
+  .jbs-hero__inner{ min-height:240px !important; height:240px; }
+}
+@media (max-width:900px){
+  .jbs-hero__inner{ min-height:240px !important; height:240px; }
+}
+@media (max-width:600px){
+  .jbs-hero__inner{ min-height:240px !important; height:240px; }
+}
