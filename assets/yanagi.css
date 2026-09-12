@@ -106,7 +106,7 @@
   min-width:0;
   flex:1 1 auto;
   color:var(--jbs-ink);
-  background:#fff;
+  background:var(--jbs-paper);
 }
 .jbs-ft__search .jbs-search__field::placeholder{
   color:var(--jbs-ink-3);
@@ -179,7 +179,7 @@
   will-change:transform;
 }
 .jbs-vb__item{
-  flex:0 0 calc((100% - 64px) / 5);
+  flex:0 0 calc((100% - 48px) / 4);
   display:block;
   aspect-ratio:16 / 9;
   border-radius:14px;
@@ -255,3 +255,8 @@
     font-size:16px;
   }
 }
+
+
+/* v11: エンドレススライダー／下エリアと同じ背景 */
+.jbs-vb{ background:var(--jbs-paper); }
+.jbs-vb__nav:disabled{ opacity:1; cursor:pointer; }
