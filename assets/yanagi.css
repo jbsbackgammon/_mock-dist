@@ -2066,96 +2066,54 @@
 
 
 /* ==========================================================================
-   v47: ヒーロー＋バナースライダー重ねレイアウト（試作）
+   v48: ヒーロー重ね試作は撤回。フッター検索アイコンを確実に表示
    ========================================================================== */
 
-/* PC：
-   ヒーロー自体は少し高くしつつ、
-   バナーを下端へ70px重ねて合計高さを圧縮 */
-@media (min-width:901px){
-  .jbs-hero__inner{
-    min-height:280px !important;
-    height:280px !important;
-  }
-
-  .jbs-vb{
-    position:relative !important;
-    z-index:6 !important;
-    margin-top:-70px !important;
-    padding-top:0 !important;
-    padding-bottom:8px !important;
-    background:
-      linear-gradient(
-        to bottom,
-        transparent 0,
-        transparent 70px,
-        var(--jbs-paper) 70px,
-        var(--jbs-paper) 100%
-      ) !important;
-  }
-
-  /* ヒーローの切替ドットはバナーに隠れない位置へ */
-  .jbs-hero__dots{
-    bottom:78px !important;
-  }
-
-  .jbs-vb__item{
-    box-shadow:0 12px 28px rgba(16,18,21,.18) !important;
-  }
+.jbs-ft--compact .jbs-ft__search button{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  flex:0 0 auto !important;
+  width:28px !important;
+  min-width:28px !important;
+  height:28px !important;
+  padding:0 !important;
+  border:1px solid var(--jbs-brand) !important;
+  border-radius:0 3px 3px 0 !important;
+  background:var(--jbs-brand) !important;
+  color:#fff !important;
+  overflow:visible !important;
 }
 
-/* タブレット～SP：
-   重なりは浅めにしてヒーロー本文とバナーの両方を見せる */
-@media (max-width:900px){
-  .jbs-hero__inner{
-    min-height:255px !important;
-    height:255px !important;
-  }
-
-  .jbs-vb{
-    position:relative !important;
-    z-index:6 !important;
-    margin-top:-46px !important;
-    padding-top:0 !important;
-    padding-bottom:4px !important;
-    background:
-      linear-gradient(
-        to bottom,
-        transparent 0,
-        transparent 46px,
-        var(--jbs-paper) 46px,
-        var(--jbs-paper) 100%
-      ) !important;
-  }
-
-  .jbs-hero__dots{
-    bottom:52px !important;
-  }
-
-  .jbs-vb__item{
-    box-shadow:0 10px 24px rgba(16,18,21,.18) !important;
-  }
+.jbs-ft--compact .jbs-ft__search button svg{
+  display:block !important;
+  width:15px !important;
+  height:15px !important;
+  margin:0 !important;
+  overflow:visible !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:2.2 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+  opacity:1 !important;
+  visibility:visible !important;
 }
 
-@media (max-width:600px){
-  .jbs-hero__inner{
-    min-height:250px !important;
-    height:250px !important;
-  }
+.jbs-ft--compact .jbs-ft__search button svg circle,
+.jbs-ft--compact .jbs-ft__search button svg path{
+  fill:none !important;
+  stroke:currentColor !important;
+}
 
-  .jbs-vb{
-    margin-top:-42px !important;
-    background:
-      linear-gradient(
-        to bottom,
-        transparent 0,
-        transparent 42px,
-        var(--jbs-paper) 42px,
-        var(--jbs-paper) 100%
-      ) !important;
-  }
-
-  .jbs-hero__dots{
-    bottom:48px !important;
-  }
+.jbs-ft--compact .jbs-ft__search .sr-only{
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  padding:0 !important;
+  margin:-1px !important;
+  overflow:hidden !important;
+  clip:rect(0,0,0,0) !important;
+  white-space:nowrap !important;
+  border:0 !important;
 }
