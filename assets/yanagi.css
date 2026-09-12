@@ -1305,3 +1305,249 @@
   transform:rotate(45deg) !important;
   flex:0 0 auto;
 }
+
+
+/* ==========================================================================
+   v36
+   ========================================================================== */
+
+/* PC/SP共通：英字協会名を少し大きく */
+.jbs-hd__name span.jbs-hd__name-en{
+  font-size:12px !important;
+  line-height:1.2 !important;
+}
+@media (max-width:900px){
+  .jbs-hd__name span.jbs-hd__name-en{
+    display:block !important;
+    font-size:10px !important;
+    line-height:1.15 !important;
+  }
+}
+@media (max-width:600px){
+  .jbs-hd__name span.jbs-hd__name-en{
+    font-size:9px !important;
+  }
+}
+
+/* 各セクション右リンクをタイトルのすぐ右へ */
+.jbs-sec__hd .jbs-more{
+  margin-left:0 !important;
+}
+
+/* JBSレーティング・ランキング・大会優勝者一覧は太字を使わない */
+.jbs-dash-list,
+.jbs-dash-list *,
+.jbs-dash__value,
+.jbs-dash__winner{
+  font-weight:400 !important;
+}
+
+/* SPヘッダー：SNSと新規入会はヘッダーから外す */
+@media (max-width:900px){
+  .jbs-hd__sns{
+    display:none !important;
+  }
+  .jbs-hd__util > .jbs-btn--primary{
+    display:none !important;
+  }
+
+  /* ハンバーガーは白ベース＋黒線、ピンクはフォーカス時だけ */
+  .jbs-burger{
+    display:flex !important;
+    width:42px !important;
+    height:42px !important;
+    padding:0 10px !important;
+    border:1px solid var(--jbs-line-strong) !important;
+    border-radius:4px !important;
+    background:#fff !important;
+    box-shadow:none !important;
+  }
+  .jbs-burger span{
+    background:var(--jbs-ink) !important;
+  }
+  .jbs-burger:focus-visible{
+    outline:2px solid var(--jbs-brand) !important;
+    outline-offset:2px !important;
+  }
+
+  /* ドロワーは白ベース。PCの色・ボタン・リンク表現に準拠 */
+  .jbs-gnav{
+    background:#fff !important;
+    color:var(--jbs-ink) !important;
+    box-shadow:-10px 0 30px rgba(16,18,21,.18) !important;
+  }
+  .jbs-gnav > .jbs-shell{
+    background:#fff !important;
+  }
+  .jbs-gnav__head{
+    padding:10px 20px 16px !important;
+    border-bottom:1px solid var(--jbs-line) !important;
+    background:#fff !important;
+  }
+  .jbs-gnav__close{
+    color:var(--jbs-ink) !important;
+  }
+  .jbs-gnav__close:focus-visible,
+  .jbs-gnav__tgl:focus-visible,
+  .jbs-gnav__list a:focus-visible{
+    outline-color:var(--jbs-brand) !important;
+  }
+
+  /* 新規入会・会員ログインはPC版と同じボタン系統 */
+  .jbs-gnav__cta{
+    gap:8px !important;
+    margin-top:8px !important;
+  }
+  .jbs-gnav__cta .jbs-btn--primary{
+    background:var(--jbs-brand) !important;
+    border-color:var(--jbs-brand) !important;
+    color:#fff !important;
+  }
+  .jbs-gnav__cta .jbs-btn--ghost{
+    background:#fff !important;
+    border-color:var(--jbs-line-strong) !important;
+    color:var(--jbs-ink) !important;
+  }
+  .jbs-gnav__cta .jbs-btn--ghost:hover{
+    border-color:var(--jbs-brand) !important;
+    color:var(--jbs-brand-dark) !important;
+  }
+
+  /* 6つの主メニューも白ベース・黒文字でPCと同系統 */
+  .jbs-gnav__list{
+    padding:0 !important;
+    background:#fff !important;
+  }
+  .jbs-gnav .jbs-gnav__list > li > a{
+    min-height:50px !important;
+    padding:13px 58px 13px 20px !important;
+    border-bottom:1px solid var(--jbs-line) !important;
+    background:#fff !important;
+    color:var(--jbs-ink) !important;
+    font-size:14px !important;
+    font-weight:700 !important;
+  }
+  .jbs-gnav__list > li > a:hover,
+  .jbs-gnav__list > li:hover > a,
+  .jbs-gnav__list > li:focus-within > a{
+    background:var(--jbs-tint) !important;
+    border-bottom-color:var(--jbs-line) !important;
+    color:var(--jbs-brand-dark) !important;
+  }
+  .jbs-gnav__tgl{
+    color:var(--jbs-ink-3) !important;
+  }
+  .jbs-gnav__list > li.is-open > .jbs-gnav__tgl{
+    color:var(--jbs-brand) !important;
+  }
+
+  /* 小項目・小見出しもPCメガメニューの白系デザインへ */
+  .jbs-gnav__list > li > ul{
+    background:var(--jbs-paper) !important;
+  }
+  .jbs-gnav .jbs-gnav__list ul a{
+    border-bottom:1px solid var(--jbs-line) !important;
+    background:var(--jbs-paper) !important;
+    color:var(--jbs-ink-2) !important;
+  }
+  .jbs-gnav__list ul a:hover{
+    background:var(--jbs-tint) !important;
+    color:var(--jbs-brand-dark) !important;
+  }
+  .jbs-gnav__mobile-head{
+    padding:10px 20px 5px !important;
+    color:var(--jbs-brand-dark) !important;
+    background:var(--jbs-paper) !important;
+    font-size:11px !important;
+    font-weight:700 !important;
+    letter-spacing:.06em !important;
+  }
+
+  /* ドロワー下部：SNSをPCヘッダーと同じ外枠なし・黒ロゴで表示 */
+  .jbs-gnav__foot{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:12px !important;
+    padding:16px 20px 28px !important;
+    border-top:1px solid var(--jbs-line) !important;
+    background:#fff !important;
+  }
+  .jbs-gnav__foot .jbs-lang{
+    color:var(--jbs-ink) !important;
+    font-size:14px !important;
+    font-weight:700 !important;
+  }
+  .jbs-drawer__sns{
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+  }
+  .jbs-drawer__sns a{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:34px !important;
+    height:34px !important;
+    padding:0 !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+  }
+  .jbs-drawer__sns img{
+    display:block !important;
+    width:30px !important;
+    height:30px !important;
+    object-fit:contain !important;
+    filter:none !important;
+  }
+}
+
+
+
+/* v37: フッター上の外余白を撤廃し、さらに低くする */
+.jbs-ft--compact{
+  margin-top:0 !important;
+  padding-top:0 !important;
+  padding-bottom:6px !important;
+}
+.jbs-ft--compact .jbs-ft__row--desc{
+  margin:0 0 3px !important;
+  padding:0 !important;
+  min-height:0 !important;
+}
+.jbs-ft--compact .jbs-ft__desc{
+  line-height:1.25 !important;
+}
+.jbs-ft--compact .jbs-ft__row--utility{
+  gap:8px !important;
+  padding:0 !important;
+  min-height:28px !important;
+  line-height:1.2 !important;
+}
+.jbs-ft--compact .jbs-ft__search form{
+  min-height:28px !important;
+}
+.jbs-ft--compact .jbs-ft__search .jbs-search__field{
+  height:28px !important;
+}
+.jbs-ft--compact .jbs-ft__search button{
+  width:28px !important;
+  height:28px !important;
+}
+.jbs-ft--compact .jbs-ft__copy,
+.jbs-ft--compact .jbs-ft__row--utility a{
+  line-height:1.2 !important;
+}
+
+@media (max-width:600px){
+  .jbs-ft--compact{
+    margin-top:0 !important;
+    padding-top:0 !important;
+    padding-bottom:5px !important;
+  }
+  .jbs-ft--compact .jbs-ft__row--desc{
+    margin-bottom:3px !important;
+  }
+}
