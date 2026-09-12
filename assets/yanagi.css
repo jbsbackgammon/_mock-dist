@@ -320,3 +320,59 @@
     letter-spacing:0;
   }
 }
+
+
+/* v14: メニューバーの配色を元に戻し、文字・余白の見やすさ改善のみ維持 */
+@media (min-width:901px){
+  .jbs-gnav{
+    background:var(--jbs-nav);
+    border-top:0;
+    border-bottom:0;
+    box-shadow:none;
+  }
+  .jbs-gnav__list > li + li{
+    border-left-color:var(--jbs-nav-sep) !important;
+  }
+  .jbs-gnav__list > li:first-child{
+    box-shadow:-1px 0 0 var(--jbs-nav-sep) !important;
+  }
+  .jbs-gnav__list > li:last-child{
+    box-shadow:1px 0 0 var(--jbs-nav-sep) !important;
+  }
+  .jbs-gnav .jbs-gnav__list > li > a{
+    text-shadow:none;
+  }
+  .jbs-gnav__list > li > a:hover,
+  .jbs-gnav__list > li:hover > a,
+  .jbs-gnav__list > li:focus-within > a{
+    background:var(--jbs-nav-hover);
+  }
+}
+
+/* v14: ヒーロー画像に合わせてコピーも切り替える */
+.jbs-hero__copies{
+  position:relative;
+  z-index:2;
+  width:100%;
+}
+.jbs-hero__copy{
+  display:none;
+  max-width:none;
+}
+.jbs-hero__copy.is-active{
+  display:block;
+}
+@media (min-width:601px){
+  .jbs-hero__lead{
+    max-width:none;
+    white-space:nowrap;
+  }
+}
+@media (max-width:600px){
+  .jbs-hero__lead{
+    white-space:normal;
+  }
+  .jbs-hero__pcbr{
+    display:none;
+  }
+}
