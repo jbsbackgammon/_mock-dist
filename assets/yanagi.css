@@ -134,3 +134,111 @@
   }
   .jbs-hd__name span.jbs-hd__name-en{ font-size:8px; letter-spacing:.06em; }
 }
+
+
+/* ヒーロー下：9:16のスライドバナー */
+.jbs-vb{
+  padding:18px 0 8px;
+  background:#fff;
+}
+.jbs-vb__sr{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+.jbs-vb__viewport{
+  position:relative;
+}
+.jbs-vb__mask{
+  overflow:hidden;
+  margin:0 52px;
+}
+.jbs-vb__track{
+  display:flex;
+  gap:16px;
+  transition:transform .35s ease;
+  will-change:transform;
+}
+.jbs-vb__item{
+  flex:0 0 calc((100% - 48px) / 4);
+  display:block;
+  aspect-ratio:9 / 16;
+  border-radius:14px;
+  overflow:hidden;
+  background:#0F1217;
+  box-shadow:0 10px 24px rgba(16,18,21,.12);
+}
+.jbs-vb__item img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.jbs-vb__nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:2;
+  width:40px;
+  height:40px;
+  padding:0;
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:999px;
+  background:rgba(255,255,255,.94);
+  color:#222;
+  font-size:18px;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:0 6px 18px rgba(16,18,21,.12);
+}
+.jbs-vb__nav--prev{ left:0; }
+.jbs-vb__nav--next{ right:0; }
+.jbs-vb__nav:disabled{
+  opacity:.35;
+  cursor:default;
+}
+.jbs-vb__dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:12px;
+}
+.jbs-vb__dots button{
+  width:10px;
+  height:10px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:rgba(27,31,39,.22);
+  cursor:pointer;
+}
+.jbs-vb__dots button[aria-selected="true"]{
+  background:var(--jbs-brand);
+}
+
+@media (max-width:600px){
+  .jbs-vb{
+    padding:14px 0 4px;
+  }
+  .jbs-vb__mask{
+    margin:0 44px;
+  }
+  .jbs-vb__track{
+    gap:12px;
+  }
+  .jbs-vb__item{
+    flex-basis:100%;
+    border-radius:12px;
+  }
+  .jbs-vb__nav{
+    width:34px;
+    height:34px;
+    font-size:16px;
+  }
+}

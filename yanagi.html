@@ -170,6 +170,32 @@
 </section>
 
 <!-- ================================ メイン ================================= -->
+
+
+<!-- =========================== ヒーロー下スライドバナー =========================== -->
+<section class="jbs-vb" aria-labelledby="h-vbanners">
+  <div class="jbs-shell">
+    <h2 id="h-vbanners" class="jbs-vb__sr">ピックアップバナー</h2>
+    <div class="jbs-vb__viewport" data-vb-slider>
+      <button class="jbs-vb__nav jbs-vb__nav--prev" type="button" aria-label="前へ">＜</button>
+      <div class="jbs-vb__mask">
+        <div class="jbs-vb__track">
+          <a class="jbs-vb__item" href="#" data-jbs-todo="バナーリンク先未設定"><img src="img/banner-01.png" alt="第32期名人戦 本戦1回戦"></a>
+          <a class="jbs-vb__item" href="#" data-jbs-todo="バナーリンク先未設定"><img src="img/banner-02.png" alt="第32期名人戦 本戦2回戦"></a>
+          <a class="jbs-vb__item" href="#" data-jbs-todo="バナーリンク先未設定"><img src="img/banner-03.png" alt="JBS第33期盤聖戦 東京1部"></a>
+          <a class="jbs-vb__item" href="#" data-jbs-todo="バナーリンク先未設定"><img src="img/banner-04.png" alt="第32期名人戦 本戦3回戦"></a>
+          <a class="jbs-vb__item" href="#" data-jbs-todo="バナーリンク先未設定"><img src="img/banner-05.png" alt="第32期名人戦 準々決勝"></a>
+          <a class="jbs-vb__item" href="#" data-jbs-todo="バナーリンク先未設定"><img src="img/banner-06.png" alt="バックギャモン世界チーム選手権2026 日本代表決勝"></a>
+          <a class="jbs-vb__item" href="#" data-jbs-todo="バナーリンク先未設定"><img src="img/banner-07.png" alt="バックギャモン世界チーム選手権2026 日本代表準決勝"></a>
+          <a class="jbs-vb__item" href="#" data-jbs-todo="バナーリンク先未設定"><img src="img/banner-08.png" alt="バックギャモン世界チーム選手権2026 日本代表準々決勝"></a>
+        </div>
+      </div>
+      <button class="jbs-vb__nav jbs-vb__nav--next" type="button" aria-label="次へ">＞</button>
+    </div>
+    <div class="jbs-vb__dots" aria-label="スライド切り替え"></div>
+  </div>
+</section>
+
 <main class="jbs-main" id="jbs-main">
   <div class="jbs-shell jbs-cols">
 
@@ -562,5 +588,92 @@
 </footer>
 
 <script src="assets/jbs.js"></script>
+
+<script>
+(function(){
+  const slider = document.querySelector('[data-vb-slider]');
+  if(!slider) return;
+  const track = slider.querySelector('.jbs-vb__track');
+  const items = Array.from(slider.querySelectorAll('.jbs-vb__item'));
+  const prevBtn = slider.querySelector('.jbs-vb__nav--prev');
+  const nextBtn = slider.querySelector('.jbs-vb__nav--next');
+  const dotsWrap = slider.parentElement.querySelector('.jbs-vb__dots');
+  if(!track || !items.length || !prevBtn || !nextBtn || !dotsWrap) return;
+
+  let currentPage = 0;
+  let visibleCount = getVisibleCount();
+  let pageCount = Math.max(1, Math.ceil(items.length / visibleCount));
+
+  function getVisibleCount(){
+    return window.innerWidth <= 600 ? 1 : 4;
+  }
+
+  function buildDots(){
+    dotsWrap.innerHTML = '';
+    pageCount = Math.max(1, Math.ceil(items.length / visibleCount));
+    for(let i = 0; i < pageCount; i++){
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('aria-label', (i + 1) + '枚目へ');
+      btn.setAttribute('aria-selected', i === currentPage ? 'true' : 'false');
+      btn.addEventListener('click', function(){
+        currentPage = i;
+        update();
+      });
+      dotsWrap.appendChild(btn);
+    }
+  }
+
+  function update(){
+    visibleCount = getVisibleCount();
+    pageCount = Math.max(1, Math.ceil(items.length / visibleCount));
+    if(currentPage > pageCount - 1) currentPage = pageCount - 1;
+
+    const firstIndex = currentPage * visibleCount;
+    const currentItem = items[firstIndex];
+    const moveX = currentItem ? currentItem.offsetLeft : 0;
+    track.style.transform = 'translateX(' + (-moveX) + 'px)';
+
+    prevBtn.disabled = currentPage === 0;
+    nextBtn.disabled = currentPage >= pageCount - 1;
+
+    Array.from(dotsWrap.children).forEach(function(dot, index){
+      dot.setAttribute('aria-selected', index === currentPage ? 'true' : 'false');
+    });
+  }
+
+  prevBtn.addEventListener('click', function(){
+    if(currentPage > 0){
+      currentPage -= 1;
+      update();
+    }
+  });
+
+  nextBtn.addEventListener('click', function(){
+    if(currentPage < pageCount - 1){
+      currentPage += 1;
+      update();
+    }
+  });
+
+  let resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){
+      const newVisible = getVisibleCount();
+      const newPageCount = Math.max(1, Math.ceil(items.length / newVisible));
+      const needRebuild = newVisible !== visibleCount || newPageCount !== pageCount;
+      visibleCount = newVisible;
+      pageCount = newPageCount;
+      if(needRebuild) buildDots();
+      update();
+    }, 80);
+  });
+
+  buildDots();
+  update();
+})();
+</script>
+
 </body>
 </html>
