@@ -1285,3 +1285,23 @@
   margin-right:4px;
   margin-left:0;
 }
+
+
+/* v35: 矢印位置は左のまま、デザインは元のjbs-more矢印に戻す */
+.jbs-more::after{
+  content:none !important;
+  display:none !important;
+}
+.jbs-more::before{
+  content:"" !important;
+  display:inline-block !important;
+  width:6px !important;
+  height:6px !important;
+  margin:0 !important;
+  border-top:2px solid var(--jbs-brand) !important;
+  border-right:2px solid var(--jbs-brand) !important;
+  border-bottom:0 !important;
+  border-left:0 !important;
+  transform:rotate(45deg) !important;
+  flex:0 0 auto;
+}
