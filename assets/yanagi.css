@@ -1167,3 +1167,60 @@
     min-height:34px !important;
   }
 }
+
+
+/* v32: フッターをコンパクト化 */
+.jbs-ft--compact{
+  padding-top:14px !important;
+  padding-bottom:12px !important;
+}
+.jbs-ft--compact .jbs-ft__row--desc{
+  margin-bottom:6px !important;
+  padding-bottom:0 !important;
+}
+.jbs-ft--compact .jbs-ft__desc{
+  margin:0 !important;
+  line-height:1.45 !important;
+}
+.jbs-ft--compact .jbs-ft__row--utility{
+  gap:10px !important;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+  line-height:1.35 !important;
+}
+.jbs-ft--compact .jbs-ft__search form{
+  min-height:30px !important;
+}
+.jbs-ft--compact .jbs-ft__search .jbs-search__field{
+  height:30px !important;
+}
+.jbs-ft--compact .jbs-ft__search button{
+  width:30px !important;
+  height:30px !important;
+}
+.jbs-ft--compact .jbs-ft__copy,
+.jbs-ft--compact .jbs-ft__row--utility a{
+  line-height:1.35 !important;
+}
+
+/* v32: 今日のポジション選択肢を2×2に */
+.jbs-position__choices{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:6px !important;
+}
+.jbs-position__choices button{
+  text-align:center !important;
+}
+
+@media (max-width:600px){
+  .jbs-ft--compact{
+    padding-top:12px !important;
+    padding-bottom:10px !important;
+  }
+  .jbs-ft--compact .jbs-ft__row--desc{
+    margin-bottom:5px !important;
+  }
+  .jbs-ft--compact .jbs-ft__row--utility{
+    gap:8px !important;
+  }
+}
