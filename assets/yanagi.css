@@ -376,3 +376,126 @@
     display:none;
   }
 }
+
+
+/* v15: PCグローバルナビを240px高のメガメニューへ変更 */
+@media (min-width:901px){
+  .jbs-gnav__list > li{
+    position:static !important;
+  }
+
+  /* SP用の従来サブメニューはPCでは非表示 */
+  .jbs-gnav__mobile-sub{
+    display:none !important;
+  }
+
+  .jbs-mega{
+    position:absolute;
+    top:100%;
+    left:0;
+    z-index:75;
+    width:100%;
+    height:240px;
+    box-sizing:border-box;
+    padding:0;
+    overflow:hidden;
+    background:#fff;
+    border-top:3px solid var(--jbs-brand);
+    border-bottom:1px solid var(--jbs-line);
+    box-shadow:0 12px 28px rgba(0,0,0,.16);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateY(-4px);
+    transition:opacity .15s ease, transform .15s ease, visibility 0s linear .15s;
+  }
+  .jbs-gnav__list > li:hover > .jbs-mega,
+  .jbs-gnav__list > li:focus-within > .jbs-mega{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:none;
+    transition-delay:0s;
+  }
+
+  .jbs-mega__inner{
+    width:100%;
+    max-width:var(--jbs-shell);
+    height:100%;
+    box-sizing:border-box;
+    margin:0 auto;
+    padding:22px 20px 20px;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:28px;
+    align-content:start;
+  }
+  .jbs-mega__inner--3{
+    grid-template-columns:1fr 1.25fr 1fr;
+  }
+  .jbs-mega__group{
+    min-width:0;
+    padding-right:24px;
+    border-right:1px solid var(--jbs-line);
+  }
+  .jbs-mega__group:last-child{
+    padding-right:0;
+    border-right:0;
+  }
+  .jbs-mega__group h3{
+    margin:0 0 9px;
+    padding:0 0 7px;
+    border-bottom:2px solid var(--jbs-brand);
+    color:var(--jbs-ink);
+    font-size:14px;
+    line-height:1.25;
+    font-weight:800;
+    letter-spacing:.02em;
+  }
+  .jbs-gnav .jbs-mega__group a{
+    position:relative;
+    display:block;
+    padding:4px 10px 4px 14px;
+    color:var(--jbs-ink);
+    font-size:13px;
+    line-height:1.35;
+    text-decoration:none;
+    border-radius:4px;
+  }
+  .jbs-gnav .jbs-mega__group a::before{
+    content:"›";
+    position:absolute;
+    left:3px;
+    top:4px;
+    color:var(--jbs-brand);
+    font-weight:800;
+  }
+  .jbs-gnav .jbs-mega__group a:hover,
+  .jbs-gnav .jbs-mega__group a:focus-visible{
+    background:var(--jbs-tint);
+    color:var(--jbs-brand-dark);
+  }
+  .jbs-mega__group--2col{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:12px;
+    align-content:start;
+  }
+  .jbs-mega__group--2col h3{
+    grid-column:1 / -1;
+  }
+}
+
+/* SPは従来どおりドロワー内のアコーディオン表示 */
+@media (max-width:900px){
+  .jbs-mega{
+    display:none !important;
+  }
+  .jbs-gnav__mobile-head{
+    padding:10px 20px 5px;
+    color:rgba(255,255,255,.62);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.08em;
+  }
+}
