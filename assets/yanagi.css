@@ -499,3 +499,21 @@
     letter-spacing:.08em;
   }
 }
+
+
+/* 興味のある方へ：STEP 1〜4をPCで1列に並べる */
+@media (min-width:901px){
+  .jbs-flow{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+}
+.jbs-flow__item--tournament .jbs-flow__num{
+  background:var(--jbs-brand);
+}
+
+/* TOP10はSTEP導線より下側に見える位置へ */
+@media (min-width:901px){
+  .jbs-side .jbs-rating-card{
+    margin-top:72px;
+  }
+}
