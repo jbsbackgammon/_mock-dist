@@ -2117,3 +2117,15 @@
   white-space:nowrap !important;
   border:0 !important;
 }
+
+
+/* ==========================================================================
+   v49: 先頭バナー追加（GP例会 / JBS SHOP）
+   ========================================================================== */
+.jbs-vb__item--gp{
+  background:#072c78 !important;
+}
+.jbs-vb__item--gp img,
+.jbs-vb__item--shop img{
+  object-position:center center;
+}
