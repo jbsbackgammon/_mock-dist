@@ -1726,3 +1726,107 @@
 .jbs-dash__winner{
   font-weight:700 !important;
 }
+
+
+/* ==========================================================================
+   v41
+   ========================================================================== */
+
+/* JAPAN BACKGAMMON SOCIETY を少し大きく */
+.jbs-hd__name span.jbs-hd__name-en{
+  font-size:13px !important;
+}
+@media (max-width:900px){
+  .jbs-hd__name{
+    font-size:18px !important;
+  }
+  .jbs-hd__name span.jbs-hd__name-en{
+    font-size:11px !important;
+  }
+}
+@media (max-width:600px){
+  .jbs-hd__name{
+    font-size:17px !important;
+  }
+  .jbs-hd__name span.jbs-hd__name-en{
+    font-size:10px !important;
+  }
+}
+
+/* PCメニューバー：6分割の罫線を少し太く */
+@media (min-width:901px){
+  .jbs-gnav__list > li + li{
+    border-left-width:2px !important;
+    border-left-style:solid !important;
+    border-left-color:var(--jbs-nav-sep) !important;
+  }
+  .jbs-gnav__list > li:first-child{
+    box-shadow:-2px 0 0 var(--jbs-nav-sep) !important;
+  }
+  .jbs-gnav__list > li:last-child{
+    box-shadow:2px 0 0 var(--jbs-nav-sep) !important;
+  }
+}
+
+/* SP：お知らせ／例会・イベント予定のタイトルはPC同様に太字 */
+@media (max-width:900px){
+  #h-news,
+  #h-schedule{
+    font-weight:700 !important;
+  }
+}
+
+/* SP：ハンバーガーと閉じる×を同一位置・同一外形にして連動感を出す */
+@media (max-width:900px){
+  .jbs-burger,
+  .jbs-gnav__close{
+    width:42px !important;
+    height:42px !important;
+    padding:0 !important;
+    border:1px solid var(--jbs-line-strong) !important;
+    border-radius:4px !important;
+    background:#fff !important;
+    box-shadow:none !important;
+  }
+
+  .jbs-gnav__close{
+    position:fixed !important;
+    top:9px !important;
+    right:20px !important;
+    z-index:1002 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    margin:0 !important;
+  }
+  .jbs-gnav__close svg{
+    width:22px !important;
+    height:22px !important;
+    stroke:var(--jbs-ink) !important;
+    stroke-width:2 !important;
+    fill:none !important;
+  }
+
+  /* English削除後はSNSを右寄せ */
+  .jbs-gnav__foot{
+    justify-content:flex-end !important;
+  }
+}
+
+@media (max-width:600px){
+  .jbs-gnav__close{
+    top:7px !important;
+    right:14px !important;
+  }
+}
+
+
+/* v42: PC/SP共通で、お知らせのラベルとタイトル間隔を詰める */
+.jbs-newslist--notice > li > a{
+  column-gap:3px !important;
+}
+@media (max-width:600px){
+  .jbs-newslist--notice > li > a{
+    column-gap:3px !important;
+  }
+}
