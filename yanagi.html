@@ -158,7 +158,7 @@
   <div class="jbs-shell jbs-hero__inner">
     <div class="jbs-hero__copy">
       <h1 class="jbs-hero__title">運と戦略が交わる、<br>世界最古のボードゲーム。</h1>
-      <p class="jbs-hero__lead">日本バックギャモン協会は、全国の公認例会や大会の運営、競技環境の整備を通じて、世代や経験を問わずバックギャモンを楽しめる場を広げています。</p>
+      <p class="jbs-hero__lead">シンプルなルールの中に、読み合いと駆け引き、そして最後まで続く逆転のドラマ。<br>初心者から世界のトッププレイヤーまで、誰もが同じボードを囲んで楽しめるゲームです。</p>
     </div>
     <div class="jbs-hero__dots" role="tablist" aria-label="写真の切り替え">
       <button type="button" role="tab" aria-selected="true"  aria-label="1枚目"></button>
@@ -521,10 +521,15 @@
   const dotsWrap = slider.parentElement.querySelector('.jbs-vb__dots');
   if(!track || !prevBtn || !nextBtn || !dotsWrap) return;
 
-  const total = track.children.length;
+  const originals = Array.from(track.querySelectorAll('.jbs-vb__item')).map(function(item){
+    return item.cloneNode(true);
+  });
+  const total = originals.length;
   if(!total) return;
 
   let currentIndex = 0;
+  let cloneCount = 0;
+  let physicalIndex = 0;
   let isAnimating = false;
 
   function getVisibleCount(){
@@ -541,6 +546,13 @@
     return first ? first.getBoundingClientRect().width + gapSize() : 0;
   }
 
+  function setTransform(animate){
+    const step = itemStep();
+    if(!step) return;
+    track.style.transition = animate ? 'transform .35s ease' : 'none';
+    track.style.transform = 'translateX(' + (-(physicalIndex * step)) + 'px)';
+  }
+
   function setDots(){
     Array.from(dotsWrap.children).forEach(function(dot, index){
       dot.setAttribute('aria-selected', index === currentIndex ? 'true' : 'false');
@@ -553,85 +565,90 @@
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.setAttribute('aria-label', (i + 1) + '枚目を左端に表示');
-      btn.setAttribute('aria-selected', i === currentIndex ? 'true' : 'false');
       btn.addEventListener('click', function(){
         if(isAnimating || i === currentIndex) return;
-        while(currentIndex !== i){
-          track.appendChild(track.firstElementChild);
-          currentIndex = (currentIndex + 1) % total;
-        }
-        track.style.transition = 'none';
-        track.style.transform = 'translateX(0)';
+        currentIndex = i;
+        physicalIndex = cloneCount + currentIndex;
+        isAnimating = true;
         setDots();
-        requestAnimationFrame(function(){
-          track.style.transition = '';
+        setTransform(true);
+        track.addEventListener('transitionend', function done(e){
+          if(e.propertyName !== 'transform') return;
+          track.removeEventListener('transitionend', done);
+          isAnimating = false;
         });
       });
       dotsWrap.appendChild(btn);
     }
+    setDots();
   }
 
-  function next(){
-    if(isAnimating) return;
-    const step = itemStep();
-    if(!step) return;
-    isAnimating = true;
-    track.style.transition = 'transform .35s ease';
-    track.style.transform = 'translateX(' + (-step) + 'px)';
+  function rebuild(){
+    cloneCount = Math.min(getVisibleCount(), total);
+    track.innerHTML = '';
 
-    const done = function(){
-      track.removeEventListener('transitionend', done);
-      track.style.transition = 'none';
-      track.appendChild(track.firstElementChild);
-      track.style.transform = 'translateX(0)';
+    for(let i = total - cloneCount; i < total; i++){
+      const clone = originals[i].cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    }
+    originals.forEach(function(item){ track.appendChild(item.cloneNode(true)); });
+    for(let i = 0; i < cloneCount; i++){
+      const clone = originals[i].cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    }
+
+    physicalIndex = cloneCount + currentIndex;
+    requestAnimationFrame(function(){ setTransform(false); });
+  }
+
+  function finishAnimation(direction){
+    if(direction === 'next' && physicalIndex >= cloneCount + total){
+      physicalIndex = cloneCount;
+      setTransform(false);
+    }else if(direction === 'prev' && physicalIndex < cloneCount){
+      physicalIndex = cloneCount + total - 1;
+      setTransform(false);
+    }
+    isAnimating = false;
+    setDots();
+  }
+
+  function move(direction){
+    if(isAnimating) return;
+    isAnimating = true;
+
+    if(direction === 'next'){
       currentIndex = (currentIndex + 1) % total;
-      setDots();
-      requestAnimationFrame(function(){
-        track.style.transition = '';
-        isAnimating = false;
-      });
-    };
-    track.addEventListener('transitionend', done);
-  }
-
-  function prev(){
-    if(isAnimating) return;
-    const step = itemStep();
-    if(!step) return;
-    isAnimating = true;
-
-    track.style.transition = 'none';
-    track.insertBefore(track.lastElementChild, track.firstElementChild);
-    track.style.transform = 'translateX(' + (-step) + 'px)';
-    void track.offsetWidth;
-    track.style.transition = 'transform .35s ease';
-    track.style.transform = 'translateX(0)';
-
-    const done = function(){
-      track.removeEventListener('transitionend', done);
+      physicalIndex += 1;
+    }else{
       currentIndex = (currentIndex - 1 + total) % total;
-      setDots();
-      track.style.transition = '';
-      isAnimating = false;
-    };
-    track.addEventListener('transitionend', done);
+      physicalIndex -= 1;
+    }
+
+    setTransform(true);
+    track.addEventListener('transitionend', function done(e){
+      if(e.propertyName !== 'transform') return;
+      track.removeEventListener('transitionend', done);
+      finishAnimation(direction);
+    });
   }
 
-  prevBtn.addEventListener('click', prev);
-  nextBtn.addEventListener('click', next);
+  prevBtn.addEventListener('click', function(){ move('prev'); });
+  nextBtn.addEventListener('click', function(){ move('next'); });
 
   let resizeTimer;
   window.addEventListener('resize', function(){
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function(){
-      track.style.transition = 'none';
-      track.style.transform = 'translateX(0)';
-      requestAnimationFrame(function(){ track.style.transition = ''; });
-    }, 80);
+      isAnimating = false;
+      rebuild();
+    }, 100);
   });
 
   buildDots();
-  setDots();
+  rebuild();
 })();
 </script>
 
