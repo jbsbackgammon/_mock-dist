@@ -1224,3 +1224,51 @@
     gap:8px !important;
   }
 }
+
+
+/* v33: セクション見出し直下の余白をなくし、1行目を2行目以降と同じ間隔にする */
+.jbs-newscols--dual .jbs-sec__hd,
+.jbs-dashboard-card .jbs-sec__hd{
+  margin-bottom:0 !important;
+}
+
+/* v33: お知らせ / 予定は全10行を完全に同一高に固定 */
+.jbs-newslist--singleline > li,
+.jbs-newslist--singleline > li > a{
+  height:36px !important;
+  min-height:36px !important;
+  box-sizing:border-box !important;
+}
+.jbs-newslist--singleline > li > a{
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+
+/* v33: JBSレーティング等も全行を同一高に固定 */
+.jbs-dash-list > li,
+.jbs-dash-list--champions > li.jbs-dash__subwinner{
+  height:32px !important;
+  min-height:32px !important;
+  box-sizing:border-box !important;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+
+/* v33: 第5回棋聖戦の2名間の横線なしを維持 */
+.jbs-dash-list--champions > li.jbs-dash__dualwinner{
+  border-bottom:0 !important;
+}
+
+/* v33: 今日のポジション図上の灰色線を削除 */
+.jbs-position{
+  border-top:0 !important;
+  padding-top:0 !important;
+}
+
+@media (max-width:600px){
+  .jbs-newslist--singleline > li,
+  .jbs-newslist--singleline > li > a{
+    height:34px !important;
+    min-height:34px !important;
+  }
+}
