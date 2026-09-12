@@ -2255,3 +2255,34 @@
     grid-template-columns:1fr !important;
   }
 }
+
+
+/* ==========================================================================
+   v55: お知らせ／予定のリンクを右下へ、リンク文字を本文サイズへ
+   ========================================================================== */
+.jbs-news__linkrow{
+  min-height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  box-sizing:border-box;
+}
+
+.jbs-news__linkrow .jbs-more,
+.jbs-dash__linkrow .jbs-more{
+  margin-left:0 !important;
+  font-size:13.5px !important;
+  font-weight:400 !important;
+}
+
+/* 見出し内はタイトルだけ */
+.jbs-newscols .jbs-sec__hd{
+  justify-content:flex-start !important;
+}
+
+@media (max-width:900px){
+  .jbs-news__linkrow .jbs-more,
+  .jbs-dash__linkrow .jbs-more{
+    font-size:12.5px !important;
+  }
+}
