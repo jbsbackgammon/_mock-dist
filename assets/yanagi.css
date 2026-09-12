@@ -2129,3 +2129,37 @@
 .jbs-vb__item--shop img{
   object-position:center center;
 }
+
+
+/* ==========================================================================
+   v51: ブランドピンクのアクセシビリティ調整／お知らせラベル配色
+   ========================================================================== */
+
+/*
+  元の #D71161 の色相・印象を維持しつつ少し暗くした #C8105A を採用。
+  白文字とのコントラスト比は約 5.7:1 で、WCAG AA（通常文字 4.5:1）を満たす。
+*/
+:root{
+  --jbs-brand:#C8105A !important;
+}
+
+/* タイトル戦ラベルも新しいブランドピンクに統一 */
+.jbs-newslabel.is-title{
+  background:var(--jbs-brand) !important;
+}
+
+/*
+  「日本代表」と「お知らせ」の色を交換。
+  お知らせはデフォルト／想定クラスの両方を緑に、
+  日本代表はブランドピンクにする。
+*/
+.jbs-newslabel:not(.is-meeting):not(.is-member):not(.is-title):not(.is-event):not(.is-national),
+.jbs-newslabel.is-notice,
+.jbs-newslabel.is-news{
+  background:#008A68 !important;
+  color:#fff !important;
+}
+.jbs-newslabel.is-national{
+  background:var(--jbs-brand) !important;
+  color:#fff !important;
+}
