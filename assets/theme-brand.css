@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* ==========================================================================
+   テーマ：ブランドカラー主体（JBSマゼンタ #D71161 をメインカラーに据える案）
+   jbs-header.css / home.css の後に読み込む。トークンの再定義のみで、
+   レイアウトのルールは一切上書きしない。
+   ========================================================================== */
+
+:root{
+  /* --- ブランド --- */
+  --jbs-brand:#D71161;          /* JBSロゴから抽出したメインカラー */
+  --jbs-brand-dark:#A80C4B;
+
+  /* --- 地色 --- */
+  --jbs-paper:#FAF6F7;          /* ほんのりピンクを含んだオフホワイト */
+
+  /* --- グローバルナビ：メインカラーをそのまま帯に使う --- */
+  --jbs-nav:#D71161;
+  --jbs-nav-hover:#BE0F56;
+  --jbs-nav-mark:#FFFFFF;       /* マゼンタ地の上なので現在地は白線 */
+
+  /* --- 濃色地の上の文字・罫線 --- */
+  --jbs-onnav:#FBDCE9;
+  --jbs-chrome-line:#8A234C;
+  --jbs-chrome-hover:#6B1636;
+
+  /* --- スマホ時のサブメニュー --- */
+  --jbs-sub-bg:#A80C4B;
+  --jbs-sub-line:#BE1D63;
+
+  /* --- フッター --- */
+  --jbs-ft-bg:#55102C;
+  --jbs-ft-text:#EBD6DF;
+  --jbs-ft-dim:#C9A3B4;
+  --jbs-ft-faint:#AE8395;
+
+  /* --- 部品用（A案の既定値をブランド寄りに） --- */
+  --jbs-brand-tint:#FDF0F5;     /* 3ステップのアイコン円 */
+  --jbs-line-strong:#D9C4CD;    /* ゴーストボタン枠 */
+  --jbs-card-hd-ico:#FFC2D9;    /* マゼンタ見出しの上のアイコン（brand だと消える） */
+
+  /* --- 淡いブランド地色 --- */
+  --jbs-tint:#FDF0F5;
+  --jbs-quick-bg:#FBEEF3;
+  --jbs-tag-bg:#F3E7EC;
+  --jbs-row-hover:#FDF6F9;
+  --jbs-card-ft:#FDFAFB;
+  --jbs-card-hd:#D71161;        /* サイドカード見出しもメインカラー */
+  --jbs-rule:#D71161;           /* セクション見出しの下罫線もメインカラー */
+
+  /* --- レベル別導線：マゼンタ1色の濃淡で「進み具合」を表す --- */
+  --jbs-lv1:#F09EC0;
+  --jbs-lv2:#E4589A;
+  --jbs-lv3:#D71161;
+  --jbs-lv4:#8E0A44;
+
+  /* --- 罫線もわずかにブランド寄りに --- */
+  --jbs-line:#E3D6DB;
+  --jbs-line-2:#F0E6EA;
+}
+
+/* クイックアクセス帯：上端にブランドカラーの細線を入れてナビと連続させる */
+.jbs-quick{
+  border-top:1px solid #E4699A;
+  background-image:linear-gradient(180deg,rgba(215,17,97,.08) 0,rgba(215,17,97,0) 40px);
+}
+
+/* 「活動報告」タグはブランド寄りの中間色に（青がマゼンタと衝突するため） */
+.jbs-tag--report{ background:#EDE3F1; color:#7B3F8F; }
