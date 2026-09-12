@@ -1,0 +1,94 @@
+/* yanagi案専用の差分スタイル */
+
+/* ヘッダー：協会名を主役にし、SNSを会員ログインの左へ */
+.jbs-hd__name{
+  font-size:20px;
+  line-height:1.25;
+  font-weight:700;
+  letter-spacing:.02em;
+  white-space:nowrap;
+}
+.jbs-hd__name span.jbs-hd__name-en{
+  margin-top:3px;
+  font-size:11px;
+  line-height:1.2;
+  font-weight:500;
+  letter-spacing:.1em;
+}
+.jbs-hd__sns{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex:0 0 auto;
+}
+.jbs-hd__sns a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:32px;
+  height:32px;
+  border:1px solid var(--jbs-line);
+  border-radius:3px;
+  background:#fff;
+  transition:border-color .15s, background .15s;
+}
+.jbs-hd__sns a:hover{
+  border-color:var(--jbs-brand);
+  background:var(--jbs-row-hover);
+}
+.jbs-hd__sns a:focus-visible{
+  outline:2px solid var(--jbs-brand);
+  outline-offset:2px;
+}
+.jbs-hd__sns img{
+  width:17px;
+  height:17px;
+  object-fit:contain;
+  filter:none;
+}
+
+/* ヒーロー：添付写真は盤面が自然に見える位置でトリミング */
+.jbs-hero__slides figure:first-child img{
+  object-position:center 52%;
+}
+
+/* フッターへ移したサイト内検索 */
+.jbs-ft__search{
+  flex:0 0 auto;
+  margin-left:auto;
+}
+.jbs-ft__search form{
+  width:280px;
+}
+.jbs-ft__search .jbs-search__field{
+  width:auto;
+  min-width:0;
+  flex:1 1 auto;
+  color:var(--jbs-ink);
+  background:#fff;
+}
+.jbs-ft__search .jbs-search__field::placeholder{
+  color:var(--jbs-ink-3);
+}
+
+@media (max-width:1100px){
+  .jbs-hd__name{ font-size:17px; }
+  .jbs-hd__sns{ gap:4px; }
+  .jbs-hd__sns a{ width:30px; height:30px; }
+}
+
+@media (max-width:900px){
+  .jbs-hd__name{ font-size:15px; white-space:normal; }
+  .jbs-hd__name span.jbs-hd__name-en{ display:block; font-size:9px; }
+  .jbs-hd__sns{ display:none; }
+  .jbs-ft__search{
+    width:100%;
+    margin-left:0;
+  }
+  .jbs-ft__search form{ width:100%; }
+}
+
+@media (max-width:600px){
+  .jbs-hd__name{ font-size:14px; }
+  .jbs-hd__name span.jbs-hd__name-en{ font-size:8px; letter-spacing:.06em; }
+}
