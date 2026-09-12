@@ -578,3 +578,66 @@
     transform:translateY(5px);
   }
 }
+
+/* v19: PC版メニューバーの高さを一律50pxに固定 */
+@media (min-width:901px){
+  .jbs-gnav__list,
+  .jbs-gnav__list > li{
+    height:50px;
+  }
+  .jbs-gnav .jbs-gnav__list > li > a{
+    box-sizing:border-box;
+    height:50px;
+    min-height:50px;
+    padding:0 8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+}
+
+
+/* v20: SNSアイコン消失対策
+   外部PNGをそのまま表示してブランドピンクに着色し、
+   mask-image依存を使わないことで表示を安定させる。 */
+.jbs-hd__sns{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+.jbs-hd__sns a{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1;
+}
+.jbs-hd__sns img{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  filter:brightness(0) saturate(100%) invert(18%) sepia(96%) saturate(4284%) hue-rotate(326deg) brightness(89%) contrast(98%) !important;
+}
+.jbs-hd__sns a::before{
+  content:none !important;
+  display:none !important;
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+}
+@media (min-width:901px){
+  .jbs-hd__sns{
+    display:flex !important;
+  }
+}
+
+/* v20: v19のPCメニューバー50px固定を最終指定として維持 */
+@media (min-width:901px){
+  .jbs-gnav__list,
+  .jbs-gnav__list > li{
+    height:50px !important;
+  }
+  .jbs-gnav .jbs-gnav__list > li > a{
+    height:50px !important;
+    min-height:50px !important;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+  }
+}
