@@ -1551,3 +1551,122 @@
     margin-bottom:3px !important;
   }
 }
+
+
+/* ==========================================================================
+   v38
+   ========================================================================== */
+
+/* ヘッダー：協会名ブロックを上下中央に見せる */
+.jbs-hd__inner{
+  align-items:center !important;
+}
+.jbs-hd__name{
+  align-self:center !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  margin:0 !important;
+  transform:none !important;
+  font-size:22px !important;
+  line-height:1.08 !important;
+  font-weight:700 !important;
+}
+.jbs-hd__name span.jbs-hd__name-en{
+  display:block !important;
+  margin-top:3px !important;
+  font-size:9px !important;
+  line-height:1 !important;
+  font-weight:500 !important;
+  letter-spacing:.10em !important;
+}
+
+@media (max-width:900px){
+  .jbs-hd__name{
+    font-size:17px !important;
+    line-height:1.08 !important;
+  }
+  .jbs-hd__name span.jbs-hd__name-en{
+    font-size:8px !important;
+  }
+}
+@media (max-width:600px){
+  .jbs-hd__name{
+    font-size:15px !important;
+  }
+  .jbs-hd__name span.jbs-hd__name-en{
+    font-size:7.5px !important;
+    letter-spacing:.08em !important;
+  }
+}
+
+/* PCメニューバー：直線罫線をやめ、バックギャモンのポイント風の斜め境界へ */
+@media (min-width:901px){
+  .jbs-gnav__list > li{
+    position:relative !important;
+    border-left:0 !important;
+    border-right:0 !important;
+  }
+  .jbs-gnav .jbs-gnav__list > li > a{
+    border-left:0 !important;
+    border-right:0 !important;
+  }
+  .jbs-gnav__list > li:not(:last-child)::after{
+    content:"" !important;
+    position:absolute !important;
+    z-index:4 !important;
+    top:6px !important;
+    right:0 !important;
+    width:1px !important;
+    height:38px !important;
+    background:var(--jbs-line-strong) !important;
+    transform-origin:center !important;
+    pointer-events:none !important;
+  }
+  .jbs-gnav__list > li:nth-child(odd):not(:last-child)::after{
+    transform:skewX(-13deg) !important;
+  }
+  .jbs-gnav__list > li:nth-child(even):not(:last-child)::after{
+    transform:skewX(13deg) !important;
+  }
+}
+
+/* セクション見出し：右リンクをタイトルと上下中央にし、下線までの余白を詰める */
+.jbs-sec__hd{
+  display:flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  padding-bottom:3px !important;
+  margin-bottom:0 !important;
+}
+.jbs-sec__hd h2{
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+  line-height:1.2 !important;
+}
+.jbs-sec__hd .jbs-more{
+  display:inline-flex !important;
+  align-items:center !important;
+  align-self:center !important;
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+  line-height:1.2 !important;
+}
+.jbs-sec__hd .jbs-more::before{
+  align-self:center !important;
+}
+
+/* レーティング等の下段4ブロック本文を、お知らせ本文と同じサイズへ */
+.jbs-dash-list > li{
+  font-size:13.5px !important;
+}
+.jbs-position__choices button{
+  font-size:13.5px !important;
+}
+
+@media (max-width:600px){
+  .jbs-dash-list > li,
+  .jbs-position__choices button{
+    font-size:12.5px !important;
+  }
+}
