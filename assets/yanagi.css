@@ -2463,3 +2463,27 @@ body.jbs-home{
     font-size:14px !important;
   }
 }
+
+
+/* ==========================================================================
+   v57: 下段4カラム幅を微調整
+   Rating : Ranking : Title holders : Position = 0.9 : 0.9 : 1.2 : 2
+   ========================================================================== */
+.jbs-dashboard-grid{
+  grid-template-columns:
+    minmax(0,0.9fr)
+    minmax(0,0.9fr)
+    minmax(0,1.2fr)
+    minmax(0,2fr) !important;
+}
+
+@media (max-width:1100px){
+  .jbs-dashboard-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media (max-width:600px){
+  .jbs-dashboard-grid{
+    grid-template-columns:1fr !important;
+  }
+}
