@@ -735,3 +735,14 @@
   letter-spacing:.04em;
   white-space:nowrap;
 }
+
+
+/* v23: STEP 1〜4を左右カラムをまたぐ全幅1段に配置したため、TOP10の旧オフセットを解除 */
+@media (min-width:901px){
+  .jbs-start-full{
+    width:100%;
+  }
+  .jbs-side .jbs-rating-card{
+    margin-top:0 !important;
+  }
+}
