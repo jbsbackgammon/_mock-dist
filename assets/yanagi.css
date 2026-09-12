@@ -1830,3 +1830,129 @@
     column-gap:3px !important;
   }
 }
+
+
+/* ==========================================================================
+   v43
+   ========================================================================== */
+
+/* SP：ハンバーガーは枠なし。同じ3本線が回転して×へ変形する */
+@media (max-width:900px){
+  .jbs-burger{
+    position:relative !important;
+    z-index:131 !important;
+    width:42px !important;
+    height:42px !important;
+    padding:0 10px !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    transition:transform .28s ease !important;
+  }
+  .jbs-burger span{
+    height:2px !important;
+    background:var(--jbs-ink) !important;
+    border-radius:1px !important;
+    transform-origin:center !important;
+    transition:transform .28s cubic-bezier(.4,0,.2,1), opacity .16s ease !important;
+  }
+  .jbs-burger[aria-expanded="true"] span:nth-child(1){
+    transform:translateY(7px) rotate(45deg) !important;
+  }
+  .jbs-burger[aria-expanded="true"] span:nth-child(2){
+    opacity:0 !important;
+    transform:scaleX(0) !important;
+  }
+  .jbs-burger[aria-expanded="true"] span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg) !important;
+  }
+
+  /* 開いた後も同じボタンを同じ場所に残すため、ヘッダーを一時的にドロワーより前面へ */
+  body.jbs-nav-open .jbs-hd{
+    z-index:130 !important;
+    background:transparent !important;
+    border-bottom-color:transparent !important;
+    pointer-events:none !important;
+  }
+  body.jbs-nav-open .jbs-hd__logo,
+  body.jbs-nav-open .jbs-hd__name{
+    opacity:0 !important;
+    visibility:hidden !important;
+  }
+  body.jbs-nav-open .jbs-hd__util{
+    pointer-events:none !important;
+  }
+  body.jbs-nav-open .jbs-burger{
+    pointer-events:auto !important;
+  }
+
+  /* 旧・別体の×ボタンは使用しない */
+  .jbs-gnav__close{
+    display:none !important;
+  }
+
+  /* ×とCTAが被らないよう、ドロワー上部にハンバーガー1個分の空間を確保 */
+  .jbs-gnav__head{
+    padding:64px 16px 14px !important;
+  }
+
+  /* 会員ログイン / 新規入会を2列表示 */
+  .jbs-gnav__cta{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+    margin:0 !important;
+  }
+  .jbs-gnav__cta .jbs-btn{
+    width:100% !important;
+    min-width:0 !important;
+    min-height:38px !important;
+    padding:0 10px !important;
+    font-size:13px !important;
+  }
+
+  /* SNSを大きくし、左右中央揃え */
+  .jbs-gnav__foot{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    padding:18px 20px 24px !important;
+  }
+  .jbs-drawer__sns{
+    width:100% !important;
+    justify-content:center !important;
+    gap:16px !important;
+  }
+  .jbs-drawer__sns a{
+    width:46px !important;
+    height:46px !important;
+  }
+  .jbs-drawer__sns img{
+    width:38px !important;
+    height:38px !important;
+  }
+}
+
+/* お知らせ：
+   ラベル列幅は維持しつつ、短いラベルのバッジ自体を右寄せ。
+   これで「例会」→タイトルの見た目の間隔を予定欄の時刻→名称と同程度にする */
+.jbs-newslist--notice > li > a{
+  column-gap:8px !important;
+}
+.jbs-newslist--notice .jbs-newslabel{
+  width:auto !important;
+  max-width:5.5em !important;
+  justify-self:end !important;
+  padding-left:6px !important;
+  padding-right:6px !important;
+}
+@media (max-width:600px){
+  .jbs-newslist--notice > li > a{
+    column-gap:6px !important;
+  }
+  .jbs-newslist--notice .jbs-newslabel{
+    padding-left:5px !important;
+    padding-right:5px !important;
+  }
+}
