@@ -641,3 +641,61 @@
     padding-bottom:0 !important;
   }
 }
+
+
+/* v21: ヘッダーSNSを黒へ戻す */
+.jbs-hd__sns img{
+  filter:none !important;
+}
+.jbs-hd__sns a::before{
+  content:none !important;
+  display:none !important;
+}
+
+/* v21: お知らせ／大会情報／例会・イベント予定を3列・同デザインに統一 */
+.jbs-newscols--triple{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+  margin-bottom:24px;
+}
+.jbs-newscols--triple .jbs-sec{
+  min-width:0;
+  margin-bottom:0;
+}
+.jbs-newslist--twoline a{
+  display:block;
+  padding:8px 4px 9px;
+  font-size:14px;
+  line-height:1.45;
+}
+.jbs-newslist--twoline .jbs-newslist__meta{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-height:19px;
+  margin-bottom:2px;
+}
+.jbs-newslist--twoline time{
+  display:block;
+  padding:0;
+  font-size:12px;
+  color:var(--jbs-ink-3);
+  white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+.jbs-newslist--twoline .jbs-tag{
+  margin:0;
+  vertical-align:0;
+}
+.jbs-newslist--twoline .jbs-newslist__t{
+  display:block;
+  min-width:0;
+  font-weight:500;
+}
+
+@media (max-width:900px){
+  .jbs-newscols--triple{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+}
