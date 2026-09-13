@@ -2528,3 +2528,43 @@ body.jbs-home{
 .jbs-dashboard-card .jbs-dash-list > li:last-child{
   border-bottom:0 !important;
 }
+
+
+/* ==========================================================================
+   v60: SPでは各リンクをタイトル行右端へ / お知らせラベル短縮
+   ========================================================================== */
+
+/* PC・タブレット：従来どおり右下リンク */
+.jbs-more--sp{
+  display:none !important;
+}
+
+/* スマホ：各タイトル行の右端（下線の上）へリンクを配置 */
+@media (max-width:600px){
+  .jbs-sec__hd{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:8px !important;
+  }
+
+  .jbs-sec__hd h2{
+    min-width:0;
+    flex:0 1 auto;
+  }
+
+  .jbs-sec__hd .jbs-more--sp{
+    display:inline-flex !important;
+    align-items:center !important;
+    margin-left:auto !important;
+    flex:0 0 auto !important;
+    font-size:14px !important;
+    font-weight:400 !important;
+  }
+
+  /* SPでは右下リンク行を非表示 */
+  .jbs-news__linkrow,
+  .jbs-dash__linkrow{
+    display:none !important;
+  }
+}
