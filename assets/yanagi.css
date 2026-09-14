@@ -2476,3 +2476,216 @@ body.jbs-home {
     font-size:16px !important;
   }
 }
+
+
+/* ==========================================================================
+   v70: PICK UP背景・詳細リンク表現を全体統一
+   ========================================================================== */
+
+/* PICK UP背景を他の本文エリアと同じ背景へ */
+.jbs-vb{
+  background:var(--jbs-paper) !important;
+}
+
+/* 詳細リンクの記号を「≫」に統一 */
+.jbs-more::before,
+.jbs-flow__go::before{
+  content:"≫" !important;
+  display:inline-block !important;
+  width:auto !important;
+  height:auto !important;
+  margin:0 2px 0 0 !important;
+  padding:0 !important;
+  border:0 !important;
+  transform:none !important;
+  color:var(--jbs-brand) !important;
+  font-weight:700 !important;
+  line-height:1 !important;
+  letter-spacing:0 !important;
+}
+
+/* 既存の疑似矢印を無効化 */
+.jbs-more::after,
+.jbs-flow__go::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* 「過去のお題」も他の詳細リンクと同じスタイルへ */
+.jbs-more--position-history{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:0 !important;
+  margin-left:auto !important;
+  padding:0 !important;
+  color:var(--jbs-ink-2) !important;
+  font-size:14px !important;
+  font-weight:400 !important;
+  line-height:1.35 !important;
+  text-decoration:none !important;
+}
+
+.jbs-more--position-history:hover{
+  color:var(--jbs-brand) !important;
+}
+
+/* STEPリンクも「≫ラベル」の詰まった見え方に統一 */
+.jbs-flow__go--overlay,
+.jbs-flow__go--body{
+  gap:0 !important;
+}
+
+
+
+/* ==========================================================================
+   v71: セクション見出し・右側リンクを完全統一
+   対象：
+   PICK UP / お知らせ / 例会・イベント予定 /
+   バックギャモンをやってみよう！ /
+   JBSレーティング / 今期ランキング / タイトル保持者 / 今日のポジション
+   ========================================================================== */
+
+/* 見出し行そのものを共通化 */
+.jbs-vb__hd,
+.jbs-newscols .jbs-sec__hd,
+.jbs-start-full .jbs-sec__hd,
+.jbs-dashboard-grid .jbs-sec__hd{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:10px !important;
+  min-height:32px !important;
+  margin:0 0 8px !important;
+  padding:0 0 6px !important;
+  border-bottom:1px solid var(--jbs-line) !important;
+  box-sizing:border-box !important;
+}
+
+/* 8項目のタイトルを同一タイポグラフィへ */
+.jbs-vb__hd h2,
+.jbs-newscols .jbs-sec__hd h2,
+.jbs-start-full .jbs-sec__hd h2,
+.jbs-dashboard-grid .jbs-sec__hd h2{
+  flex:0 1 auto !important;
+  min-width:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:var(--jbs-ink) !important;
+  font-size:18px !important;
+  font-weight:700 !important;
+  line-height:1.35 !important;
+  letter-spacing:0 !important;
+}
+
+/* タイトル自体がリンクの場合も見た目を同一化 */
+.jbs-vb__hd h2 a,
+.jbs-newscols .jbs-sec__hd h2 a,
+.jbs-start-full .jbs-sec__hd h2 a,
+.jbs-dashboard-grid .jbs-sec__hd h2 a,
+.jbs-sec__titlelink{
+  color:inherit !important;
+  font:inherit !important;
+  line-height:inherit !important;
+  letter-spacing:inherit !important;
+  text-decoration:none !important;
+}
+
+/* PCでタイトルリンクに付けていた小矢印は削除。
+   詳細導線の記号は右側リンクの「≫」に統一する */
+.jbs-sec__titlelink::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* 右側リンクを全セクションで統一 */
+.jbs-vb__hd .jbs-more,
+.jbs-newscols .jbs-sec__hd .jbs-more,
+.jbs-start-full .jbs-sec__hd .jbs-more,
+.jbs-dashboard-grid .jbs-sec__hd .jbs-more,
+.jbs-more--sp,
+.jbs-more--position-history{
+  display:inline-flex !important;
+  align-items:center !important;
+  flex:0 0 auto !important;
+  gap:0 !important;
+  margin:0 0 0 auto !important;
+  padding:0 !important;
+  color:var(--jbs-ink-2) !important;
+  font-size:14px !important;
+  font-weight:400 !important;
+  line-height:1.35 !important;
+  letter-spacing:0 !important;
+  text-decoration:none !important;
+  white-space:nowrap !important;
+}
+
+/* 右側リンク記号はすべて「≫」 */
+.jbs-vb__hd .jbs-more::before,
+.jbs-newscols .jbs-sec__hd .jbs-more::before,
+.jbs-start-full .jbs-sec__hd .jbs-more::before,
+.jbs-dashboard-grid .jbs-sec__hd .jbs-more::before,
+.jbs-more--sp::before,
+.jbs-more--position-history::before{
+  content:"≫" !important;
+  display:inline-block !important;
+  width:auto !important;
+  height:auto !important;
+  margin:0 2px 0 0 !important;
+  padding:0 !important;
+  border:0 !important;
+  transform:none !important;
+  color:var(--jbs-brand) !important;
+  font-weight:700 !important;
+  line-height:1 !important;
+  letter-spacing:0 !important;
+}
+
+.jbs-vb__hd .jbs-more::after,
+.jbs-newscols .jbs-sec__hd .jbs-more::after,
+.jbs-start-full .jbs-sec__hd .jbs-more::after,
+.jbs-dashboard-grid .jbs-sec__hd .jbs-more::after,
+.jbs-more--sp::after,
+.jbs-more--position-history::after{
+  content:none !important;
+  display:none !important;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .jbs-vb__hd .jbs-more:hover,
+  .jbs-newscols .jbs-sec__hd .jbs-more:hover,
+  .jbs-start-full .jbs-sec__hd .jbs-more:hover,
+  .jbs-dashboard-grid .jbs-sec__hd .jbs-more:hover,
+  .jbs-more--sp:hover,
+  .jbs-more--position-history:hover{
+    color:var(--jbs-brand) !important;
+  }
+}
+
+/* SPも全セクション同一 */
+@media (max-width:600px){
+  .jbs-vb__hd,
+  .jbs-newscols .jbs-sec__hd,
+  .jbs-start-full .jbs-sec__hd,
+  .jbs-dashboard-grid .jbs-sec__hd{
+    gap:8px !important;
+    min-height:30px !important;
+    margin-bottom:8px !important;
+    padding-bottom:6px !important;
+  }
+
+  .jbs-vb__hd h2,
+  .jbs-newscols .jbs-sec__hd h2,
+  .jbs-start-full .jbs-sec__hd h2,
+  .jbs-dashboard-grid .jbs-sec__hd h2{
+    font-size:16px !important;
+  }
+
+  .jbs-vb__hd .jbs-more,
+  .jbs-newscols .jbs-sec__hd .jbs-more,
+  .jbs-start-full .jbs-sec__hd .jbs-more,
+  .jbs-dashboard-grid .jbs-sec__hd .jbs-more,
+  .jbs-more--sp,
+  .jbs-more--position-history{
+    font-size:14px !important;
+  }
+}
