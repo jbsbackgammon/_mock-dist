@@ -2568,3 +2568,137 @@ body.jbs-home{
     display:none !important;
   }
 }
+
+
+/* ==========================================================================
+   v62: 仕上げ調整
+   1. スライドバナーの統一感
+   2. PCの詳細ページ導線
+   3. 主要本文の16px化
+   4. 余白の微調整
+   ========================================================================== */
+
+/* 1. バナー：外枠・角丸・影を統一し、広告感を弱める */
+.jbs-vb{
+  padding-top:14px !important;
+  padding-bottom:10px !important;
+}
+.jbs-vb__item{
+  box-sizing:border-box !important;
+  border:1px solid rgba(31,34,38,.12) !important;
+  border-radius:10px !important;
+  background:#fff !important;
+  box-shadow:0 3px 10px rgba(16,18,21,.10) !important;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
+}
+.jbs-vb__item img{
+  border-radius:9px !important;
+}
+@media (hover:hover) and (pointer:fine){
+  .jbs-vb__item:hover{
+    transform:translateY(-2px);
+    border-color:rgba(200,16,90,.28) !important;
+    box-shadow:0 6px 16px rgba(16,18,21,.12) !important;
+  }
+}
+.jbs-vb__nav{
+  border-color:rgba(31,34,38,.14) !important;
+  box-shadow:0 3px 10px rgba(16,18,21,.10) !important;
+}
+.jbs-vb__dots{
+  margin-top:8px !important;
+}
+
+/* 2. PC詳細導線：見出しそのものをリンク化し、控えめな矢印を付ける */
+.jbs-sec__titlelink{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:inherit !important;
+  text-decoration:none !important;
+}
+@media (min-width:601px){
+  .jbs-sec__titlelink::after{
+    content:"";
+    width:6px;
+    height:6px;
+    flex:0 0 auto;
+    border-top:2px solid var(--jbs-brand);
+    border-right:2px solid var(--jbs-brand);
+    transform:rotate(45deg);
+    opacity:.8;
+    transition:transform .15s ease, opacity .15s ease;
+  }
+  .jbs-sec__titlelink:hover{
+    color:var(--jbs-brand-dark) !important;
+  }
+  .jbs-sec__titlelink:hover::after{
+    transform:translateX(2px) rotate(45deg);
+    opacity:1;
+  }
+}
+@media (max-width:600px){
+  /* SPは従来どおりタイトル行右端の専用リンクを主導線にする */
+  .jbs-sec__titlelink::after{
+    content:none !important;
+  }
+}
+
+/* 3. 主要本文のみ16px化。SP/タブレットは密度を優先して14px維持 */
+@media (min-width:901px){
+  .jbs-newslist--singleline time,
+  .jbs-newslist--singleline .jbs-newsline__title{
+    font-size:16px !important;
+  }
+  .jbs-dash-list > li,
+  .jbs-position__choices button{
+    font-size:16px !important;
+  }
+  .jbs-flow__item p{
+    font-size:16px !important;
+  }
+
+  /* 文字が大きくなっても窮屈にならない最小限の行高 */
+  .jbs-newslist--singleline > li > a{
+    min-height:38px !important;
+  }
+  .jbs-dash-list > li{
+    min-height:34px !important;
+  }
+}
+
+/* 4. 縦方向の余白を整理。情報量は保ちつつ間延びを抑える */
+.jbs-main{
+  padding-top:12px !important;
+}
+.jbs-newscols--dual{
+  margin-bottom:20px !important;
+}
+.jbs-start-full .jbs-sec{
+  margin-bottom:20px !important;
+}
+.jbs-dashboard-grid{
+  gap:16px !important;
+  margin-top:0 !important;
+  margin-bottom:24px !important;
+}
+.jbs-sec__hd{
+  margin-bottom:6px !important;
+  padding-bottom:6px !important;
+}
+
+@media (max-width:600px){
+  .jbs-vb{
+    padding-top:12px !important;
+    padding-bottom:6px !important;
+  }
+  .jbs-vb__item{
+    border-radius:10px !important;
+  }
+  .jbs-vb__item img{
+    border-radius:9px !important;
+  }
+  .jbs-dashboard-grid{
+    gap:18px !important;
+  }
+}
