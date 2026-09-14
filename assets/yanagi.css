@@ -2731,3 +2731,46 @@ body.jbs-home {
 .jbs-dashboard-card:not(.jbs-position-card) .jbs-dash-list > li:last-child{
   border-bottom:1px solid var(--jbs-line-2) !important;
 }
+
+
+/* ==========================================================================
+   v74: 横罫線の色・太さをセクション見出し下と統一
+   ========================================================================== */
+
+/* 本文内の横罫線は、見出し下と同じ 1px / var(--jbs-line) に統一 */
+.jbs-newslist--singleline > li,
+.jbs-dash-list > li,
+.jbs-dashboard-card:not(.jbs-position-card) .jbs-dash-list > li:last-child,
+.jbs-dash__linkrow,
+.jbs-position__choices{
+  border-color:var(--jbs-line) !important;
+  border-width:1px !important;
+}
+
+/* お知らせ・予定の各行 */
+.jbs-newslist--singleline > li{
+  border-bottom-style:solid !important;
+  border-bottom-color:var(--jbs-line) !important;
+}
+
+/* レーティング・ランキング・タイトル保持者の各行 */
+.jbs-dash-list > li{
+  border-bottom-style:solid !important;
+  border-bottom-color:var(--jbs-line) !important;
+}
+
+/* 同一タイトルの複数優勝者間は従来どおり区切らない */
+.jbs-dash-list--champions > li.jbs-dash__dualwinner{
+  border-bottom:0 !important;
+}
+
+/* 今日のポジション：図の直下に罫線を密着 */
+.jbs-position{
+  margin-bottom:0 !important;
+  padding-bottom:0 !important;
+}
+
+.jbs-position__choices{
+  margin-top:0 !important;
+  border-top:1px solid var(--jbs-line) !important;
+}
