@@ -2702,3 +2702,73 @@ body.jbs-home{
     gap:18px !important;
   }
 }
+
+
+/* ==========================================================================
+   v63: STEPリンク省スペース化 / 過去のお題リンク
+   ========================================================================== */
+
+/* STEPリンクは他の詳細リンクと同様に「››」表現へ */
+.jbs-flow__go::after{
+  content:none !important;
+}
+.jbs-flow__go::before{
+  content:"››";
+  margin-right:5px;
+  color:var(--jbs-brand);
+  font-weight:700;
+  letter-spacing:-.08em;
+}
+
+/* PC・タブレット：リンクをSTEPバッジの横（画像下端）へ置き、
+   本文側のリンク1行を削減 */
+@media (min-width:601px){
+  .jbs-flow__go--overlay{
+    position:absolute;
+    right:10px;
+    bottom:8px;
+    z-index:2;
+    display:inline-flex !important;
+    align-items:center;
+    min-height:24px;
+    margin:0 !important;
+    padding:3px 9px !important;
+    border-radius:999px;
+    background:rgba(255,255,255,.94);
+    color:var(--jbs-ink-2) !important;
+    font-size:14px !important;
+    font-weight:400 !important;
+    line-height:1.3;
+    box-shadow:0 1px 4px rgba(0,0,0,.18);
+    white-space:nowrap;
+  }
+  .jbs-flow__go--body{
+    display:none !important;
+  }
+}
+
+/* SP：画像幅が狭いためSTEP横には置かず、従来どおり本文内に表示 */
+@media (max-width:600px){
+  .jbs-flow__go--overlay{
+    display:none !important;
+  }
+  .jbs-flow__go--body{
+    display:inline-flex !important;
+    align-items:center;
+    margin-top:2px !important;
+    padding-top:0 !important;
+    font-size:14px !important;
+    font-weight:400 !important;
+  }
+}
+
+/* 今日のポジション「過去のお題」：PCにもタイトル行リンクを設置 */
+.jbs-more--position-pc{
+  font-size:14px !important;
+  font-weight:400 !important;
+}
+@media (max-width:600px){
+  .jbs-more--position-pc{
+    display:none !important;
+  }
+}
