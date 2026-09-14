@@ -2337,3 +2337,14 @@ body.jbs-home {
   font-size: 14px !important;
   font-weight: 400 !important;
 }
+
+
+/* ==========================================================================
+   v67: バナースライダー表示枚数
+   PC 4枚 / Tablet 2枚 / SP 1枚
+   ========================================================================== */
+@media (min-width:601px) and (max-width:900px){
+  .jbs-vb__item{
+    flex-basis:calc((100% - 16px) / 2) !important;
+  }
+}
