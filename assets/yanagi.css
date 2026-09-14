@@ -2772,3 +2772,40 @@ body.jbs-home{
     display:none !important;
   }
 }
+
+
+/* ==========================================================================
+   v64: トップページ本文系フォントを14pxへ整理
+   ========================================================================== */
+
+/* PCで16pxへ拡大していた一覧・本文系を14pxへ戻す */
+@media (min-width:901px){
+  .jbs-newslist--singleline time,
+  .jbs-newslist--singleline .jbs-newsline__title{
+    font-size:14px !important;
+  }
+
+  .jbs-dash-list > li,
+  .jbs-position__choices button{
+    font-size:14px !important;
+  }
+
+  .jbs-flow__item p{
+    font-size:14px !important;
+  }
+
+  /* 16px化に合わせて増やしていた行高も元の密度へ */
+  .jbs-newslist--singleline > li > a{
+    min-height:36px !important;
+  }
+
+  .jbs-dash-list > li{
+    min-height:32px !important;
+  }
+}
+
+/* STEP横リンクも本文系と同じ14pxで統一 */
+.jbs-flow__go--overlay,
+.jbs-flow__go--body{
+  font-size:14px !important;
+}
