@@ -2689,3 +2689,28 @@ body.jbs-home {
     font-size:14px !important;
   }
 }
+
+
+/* ==========================================================================
+   v72: セクション見出し左アクセントとの重なりを解消
+   ========================================================================== */
+
+/* 全8項目で左アクセント線とタイトル文字の間隔を統一 */
+.jbs-vb__hd h2,
+.jbs-newscols .jbs-sec__hd h2,
+.jbs-start-full .jbs-sec__hd h2,
+.jbs-dashboard-grid .jbs-sec__hd h2{
+  position:relative !important;
+  padding-left:14px !important;
+}
+
+/* 左アクセント線も全8項目で同一位置 */
+.jbs-vb__hd h2::before,
+.jbs-newscols .jbs-sec__hd h2::before,
+.jbs-start-full .jbs-sec__hd h2::before,
+.jbs-dashboard-grid .jbs-sec__hd h2::before{
+  left:0 !important;
+  top:.2em !important;
+  width:4px !important;
+  height:1em !important;
+}
