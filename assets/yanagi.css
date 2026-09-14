@@ -2714,3 +2714,20 @@ body.jbs-home {
   width:4px !important;
   height:1em !important;
 }
+
+
+/* ==========================================================================
+   v73: 一覧1行目の高さ統一 / ダッシュボード最終行罫線
+   ========================================================================== */
+
+/* 見出し下の余白が1行目だけ高く見える原因だったため、
+   一覧系ブロックでは見出し下余白をなくし、1行目を2行目以降と同じ高さにする */
+.jbs-newscols .jbs-sec__hd,
+.jbs-dashboard-grid .jbs-sec__hd{
+  margin-bottom:0 !important;
+}
+
+/* レーティング・今期ランキング・タイトル保持者は最終行にも下罫線を表示 */
+.jbs-dashboard-card:not(.jbs-position-card) .jbs-dash-list > li:last-child{
+  border-bottom:1px solid var(--jbs-line-2) !important;
+}
