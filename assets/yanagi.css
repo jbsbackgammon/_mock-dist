@@ -2348,3 +2348,102 @@ body.jbs-home {
     flex-basis:calc((100% - 16px) / 2) !important;
   }
 }
+
+
+/* ==========================================================================
+   v68: ヒーローとバナーの役割を分離
+   Hero = 世界観 / PICK UP = 情報帯
+   ========================================================================== */
+
+/* ヒーロー直下に「情報帯」として独立させる */
+.jbs-vb{
+  padding-top:20px !important;
+  padding-bottom:20px !important;
+  background:#fff !important;
+}
+
+/* PICK UP 見出し */
+.jbs-vb__title{
+  margin:0 0 10px !important;
+  padding:0 !important;
+  color:var(--jbs-ink-2);
+  font-size:14px !important;
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:.12em;
+}
+
+/* バナーを少し小さくし、広告感を弱める */
+@media (min-width:901px){
+  .jbs-vb__mask{
+    margin-left:64px !important;
+    margin-right:64px !important;
+  }
+}
+
+.jbs-vb__item{
+  border-color:rgba(31,34,38,.10) !important;
+  border-radius:8px !important;
+  box-shadow:0 2px 6px rgba(16,18,21,.07) !important;
+}
+
+.jbs-vb__item img{
+  border-radius:7px !important;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .jbs-vb__item:hover{
+    transform:translateY(-1px) !important;
+    border-color:rgba(200,16,90,.22) !important;
+    box-shadow:0 4px 10px rgba(16,18,21,.09) !important;
+  }
+}
+
+/* ナビも主張を少し抑える */
+.jbs-vb__nav{
+  width:36px !important;
+  height:36px !important;
+  border-color:rgba(31,34,38,.12) !important;
+  box-shadow:0 2px 7px rgba(16,18,21,.08) !important;
+  background:rgba(255,255,255,.96) !important;
+}
+
+/* ドットも情報帯の中で控えめに */
+.jbs-vb__dots{
+  margin-top:8px !important;
+}
+
+/* タブレット：2枚表示は維持しつつ余白を確保 */
+@media (min-width:601px) and (max-width:900px){
+  .jbs-vb{
+    padding-top:18px !important;
+    padding-bottom:18px !important;
+  }
+
+  .jbs-vb__mask{
+    margin-left:48px !important;
+    margin-right:48px !important;
+  }
+
+  .jbs-vb__title{
+    font-size:14px !important;
+  }
+}
+
+/* スマホ：1枚表示、見出しを少し小さく */
+@media (max-width:600px){
+  .jbs-vb{
+    padding-top:16px !important;
+    padding-bottom:14px !important;
+  }
+
+  .jbs-vb__title{
+    margin-bottom:8px !important;
+    font-size:12px !important;
+  }
+
+  .jbs-vb__mask{
+    margin-left:42px !important;
+    margin-right:42px !important;
+  }
+}
