@@ -2948,3 +2948,38 @@ body.jbs-home {
     font-weight:700 !important;
   }
 }
+
+
+/* ==========================================================================
+   v78: イベント曜日表示 / PC列幅微調整
+   ========================================================================== */
+
+/* PC：右列をほんの少し広く */
+@media (min-width:901px){
+  .jbs-newscols--dual{
+    grid-template-columns:minmax(0,6.8fr) minmax(0,3.2fr) !important;
+  }
+}
+
+/* イベント日時：日付 曜日 時刻 */
+.jbs-newslist--schedule time{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:4px !important;
+}
+
+.jbs-event-dow{
+  font-weight:700 !important;
+}
+
+.jbs-event-dow.is-weekday{
+  color:#16803C !important;
+}
+
+.jbs-event-dow.is-sat{
+  color:#2F6FB0 !important;
+}
+
+.jbs-event-dow.is-sunholiday{
+  color:#C8105A !important;
+}
