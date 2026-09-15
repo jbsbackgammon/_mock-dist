@@ -2983,3 +2983,36 @@ body.jbs-home {
 .jbs-event-dow.is-sunholiday{
   color:#C8105A !important;
 }
+
+
+/* ==========================================================================
+   v79: お知らせ/イベント列幅 2:1 / SPイベント日時重なり修正
+   ========================================================================== */
+
+/* PC：お知らせ 2 / イベント予定 1 */
+@media (min-width:901px){
+  .jbs-newscols--dual{
+    grid-template-columns:minmax(0,2fr) minmax(0,1fr) !important;
+  }
+}
+
+/* SP：日時列は内容幅を確保し、イベント名と重ならないようにする */
+@media (max-width:600px){
+  .jbs-newslist--schedule > li > a{
+    grid-template-columns:max-content minmax(0,1fr) auto !important;
+    column-gap:8px !important;
+    align-items:center !important;
+  }
+
+  .jbs-newslist--schedule time{
+    min-width:max-content !important;
+    white-space:nowrap !important;
+  }
+
+  .jbs-newslist--schedule .jbs-newsline__title{
+    min-width:0 !important;
+    overflow:hidden !important;
+    white-space:nowrap !important;
+    text-overflow:ellipsis !important;
+  }
+}
