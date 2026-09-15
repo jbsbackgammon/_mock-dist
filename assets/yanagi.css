@@ -3049,3 +3049,62 @@ body.jbs-home {
     border-top:1px solid rgba(255,255,255,.22) !important;
   }
 }
+
+
+/* ==========================================================================
+   v81: フッター整列 / 今日のポジション選択肢太字
+   ========================================================================== */
+
+/* 今日のポジション：PC/SP共通で選択肢を太字 */
+.jbs-position__choices button{
+  font-weight:700 !important;
+}
+
+/* PC：2行目の4要素を均等配置 */
+@media (min-width:901px){
+  .jbs-ft--compact .jbs-ft__row--utility{
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:20px !important;
+    align-items:center !important;
+  }
+
+  .jbs-ft--compact .jbs-ft__search{
+    width:100% !important;
+    min-width:0 !important;
+    margin:0 !important;
+  }
+
+  .jbs-ft--compact .jbs-ft__search form{
+    width:100% !important;
+  }
+
+  .jbs-ft--compact .jbs-ft__row--utility > a{
+    margin:0 !important;
+    text-align:center !important;
+    white-space:normal !important;
+  }
+
+  .jbs-ft--compact .jbs-ft__copy{
+    width:auto !important;
+    margin:0 !important;
+    text-align:right !important;
+    white-space:normal !important;
+  }
+}
+
+/* SP：2リンクは左右均等、コピーライトは中央 */
+@media (max-width:600px){
+  .jbs-ft--compact .jbs-ft__row--utility{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  .jbs-ft--compact .jbs-ft__row--utility > a{
+    width:100% !important;
+    text-align:center !important;
+  }
+
+  .jbs-ft--compact .jbs-ft__copy{
+    text-align:center !important;
+  }
+}
