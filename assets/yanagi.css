@@ -2799,3 +2799,100 @@ body.jbs-home {
     margin-right:36px !important;
   }
 }
+
+
+/* ==========================================================================
+   v76: SPお知らせ・イベント表示 / フッター整理
+   ========================================================================== */
+
+@media (max-width:600px){
+
+  /* お知らせはPC版に準拠：
+     日付・カテゴリ・タイトルを横並びの1行構成で統一 */
+  .jbs-newslist--singleline > li > a{
+    display:grid !important;
+    grid-template-columns:84px minmax(0,1fr) !important;
+    gap:0 10px !important;
+    min-height:36px !important;
+    padding:7px 4px !important;
+    align-items:center !important;
+  }
+
+  .jbs-newslist--singleline time{
+    padding-top:.1em !important;
+    font-size:14px !important;
+    line-height:1.5 !important;
+    white-space:nowrap !important;
+  }
+
+  .jbs-newslist--singleline .jbs-newsline__title{
+    min-width:0 !important;
+    font-size:14px !important;
+    line-height:1.5 !important;
+  }
+
+  /* 例会・イベント予定もPCの情報密度に準拠 */
+  .jbs-newslist--schedule > li > a{
+    grid-template-columns:84px minmax(0,1fr) auto !important;
+  }
+
+  /* SPではイベント名を太字 */
+  .jbs-newslist--schedule .jbs-newsline__title{
+    font-weight:700 !important;
+  }
+
+  /* フッター：検索→リンク→著作権を明確に分離して整頓 */
+  .jbs-ft--compact{
+    padding:16px 0 14px !important;
+  }
+
+  .jbs-ft--compact .jbs-ft__row--desc{
+    display:block !important;
+    padding-bottom:14px !important;
+  }
+
+  .jbs-ft--compact .jbs-ft__row--desc .jbs-ft__desc{
+    margin:0 !important;
+    font-size:12px !important;
+    line-height:1.7 !important;
+  }
+
+  .jbs-ft--compact .jbs-ft__row--utility{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:10px 14px !important;
+    align-items:center !important;
+    padding-top:14px !important;
+    border-top:1px solid rgba(255,255,255,.22) !important;
+    white-space:normal !important;
+  }
+
+  .jbs-ft--compact .jbs-ft__search{
+    grid-column:1 / -1 !important;
+    width:100% !important;
+    margin:0 !important;
+  }
+
+  .jbs-ft--compact .jbs-ft__search form{
+    width:100% !important;
+  }
+
+  .jbs-ft--compact .jbs-ft__row--utility > a{
+    display:block !important;
+    margin:0 !important;
+    font-size:12px !important;
+    line-height:1.45 !important;
+    text-align:left !important;
+  }
+
+  .jbs-ft--compact .jbs-ft__copy{
+    grid-column:1 / -1 !important;
+    width:100% !important;
+    margin:2px 0 0 !important;
+    padding-top:10px !important;
+    border-top:1px solid rgba(255,255,255,.14) !important;
+    font-size:10px !important;
+    line-height:1.5 !important;
+    text-align:left !important;
+  }
+}
