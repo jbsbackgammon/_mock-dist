@@ -3207,3 +3207,30 @@ body.jbs-home {
     font-size:12px !important;
   }
 }
+
+
+/* ==========================================================================
+   v85: 一覧リンクのPCホバー演出をピンク文字へ統一 / 横罫線固定
+   ========================================================================== */
+@media (hover:hover) and (pointer:fine){
+
+  /* お知らせ・イベント予定：横罫線は動かさず、タイトルだけブランド色へ */
+  .jbs-newslist--singleline > li,
+  .jbs-newslist--singleline > li:hover{
+    border-bottom:1px solid var(--jbs-line) !important;
+  }
+
+  .jbs-newslist--singleline > li > a,
+  .jbs-newslist--singleline > li > a:hover{
+    text-decoration:none !important;
+  }
+
+  .jbs-newslist--singleline > li > a:hover .jbs-newsline__title{
+    color:var(--jbs-brand) !important;
+  }
+
+  /* 日付・曜日・カテゴリラベルは情報色を維持 */
+  .jbs-newslist--singleline > li > a:hover time{
+    text-decoration:none !important;
+  }
+}
