@@ -3266,3 +3266,13 @@ body.jbs-home {
     transform:translateY(2px) !important;
   }
 }
+
+
+/* ==========================================================================
+   v87: PCヘッダータイトルをさらに2px下へ
+   ========================================================================== */
+@media (min-width:901px){
+  .jbs-hd__name{
+    transform:translateY(4px) !important;
+  }
+}
