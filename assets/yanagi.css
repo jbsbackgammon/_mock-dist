@@ -3234,3 +3234,35 @@ body.jbs-home {
     text-decoration:none !important;
   }
 }
+
+
+/* ==========================================================================
+   v86: PCメニューバー48px固定 / ヘッダータイトルを少し下へ
+   ========================================================================== */
+@media (min-width:901px){
+
+  /* メニューバー全体を48pxで固定 */
+  .jbs-gnav,
+  .jbs-gnav > .jbs-shell,
+  .jbs-gnav__list,
+  .jbs-gnav__list > li{
+    min-height:48px !important;
+    height:48px !important;
+  }
+
+  .jbs-gnav .jbs-gnav__list > li > a{
+    min-height:48px !important;
+    height:48px !important;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    box-sizing:border-box !important;
+  }
+
+  /* 日本語＋英語タイトル全体をわずかに下へ */
+  .jbs-hd__name{
+    transform:translateY(2px) !important;
+  }
+}
