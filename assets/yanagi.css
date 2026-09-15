@@ -3016,3 +3016,36 @@ body.jbs-home {
     text-overflow:ellipsis !important;
   }
 }
+
+
+/* ==========================================================================
+   v80: SPお知らせ縦位置調整 / PCフッター区切り線
+   ========================================================================== */
+
+/* SPお知らせ：日付・ラベル・タイトルを上下中央揃え */
+@media (max-width:600px){
+  .jbs-newslist--notice > li > a{
+    align-items:center !important;
+  }
+
+  .jbs-newslist--notice time,
+  .jbs-newslist--notice .jbs-newslabel,
+  .jbs-newslist--notice .jbs-fresh,
+  .jbs-newslist--notice .jbs-newsline__title{
+    align-self:center !important;
+    margin-top:0 !important;
+  }
+
+  .jbs-newslist--notice .jbs-newslabel{
+    line-height:1.35 !important;
+  }
+}
+
+/* PCフッター：スマホ版と同様、説明文とユーティリティ行の間に区切り線 */
+@media (min-width:901px){
+  .jbs-ft--compact .jbs-ft__row--utility{
+    margin-top:12px !important;
+    padding-top:12px !important;
+    border-top:1px solid rgba(255,255,255,.22) !important;
+  }
+}
