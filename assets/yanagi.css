@@ -3178,3 +3178,32 @@ body.jbs-home {
     min-height:44px !important;
   }
 }
+
+
+/* ==========================================================================
+   v84: PCメニューバー高さ / ヘッダー英字サイズ・縦位置
+   ========================================================================== */
+@media (min-width:901px){
+
+  .jbs-gnav .jbs-gnav__list > li > a{
+    min-height:48px !important;
+    height:48px !important;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    box-sizing:border-box !important;
+  }
+
+  .jbs-hd__name{
+    align-self:center !important;
+    transform:none !important;
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  .jbs-hd__name span.jbs-hd__name-en{
+    font-size:12px !important;
+  }
+}
