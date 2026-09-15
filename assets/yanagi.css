@@ -2896,3 +2896,55 @@ body.jbs-home {
     text-align:left !important;
   }
 }
+
+
+/* ==========================================================================
+   v77: SPお知らせレイアウトをv75相当に復元 / タイトル太字
+   ========================================================================== */
+@media (max-width:600px){
+
+  /* お知らせ欄のみ、v76で変更した2列レイアウトを取り消す */
+  .jbs-newslist--notice > li,
+  .jbs-newslist--notice > li > a{
+    height:auto !important;
+    min-height:34px !important;
+  }
+
+  .jbs-newslist--notice > li > a{
+    display:grid !important;
+    grid-template-columns:auto 5.5em minmax(0,1fr) auto !important;
+    column-gap:0 !important;
+    row-gap:0 !important;
+    padding:6px 2px !important;
+    align-items:start !important;
+  }
+
+  .jbs-newslist--notice .jbs-newslabel{
+    width:5.5em !important;
+    max-width:none !important;
+    justify-self:center !important;
+    margin-left:5px !important;
+    margin-right:5px !important;
+    padding-left:4px !important;
+    padding-right:4px !important;
+  }
+
+  .jbs-newslist--notice time,
+  .jbs-newslist--notice .jbs-newslabel,
+  .jbs-newslist--notice .jbs-fresh{
+    align-self:start !important;
+    margin-top:1px !important;
+  }
+
+  .jbs-newslist--notice .jbs-newsline__title{
+    width:100% !important;
+    min-width:0 !important;
+    margin-left:0 !important;
+    padding-left:0 !important;
+    overflow:visible !important;
+    white-space:normal !important;
+    text-overflow:clip !important;
+    line-height:1.45 !important;
+    font-weight:700 !important;
+  }
+}
