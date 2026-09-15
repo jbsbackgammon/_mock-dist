@@ -3166,3 +3166,15 @@ body.jbs-home {
     white-space:nowrap !important;
   }
 }
+
+
+/* ==========================================================================
+   v83: PCフッター高さをコンパクト化
+   ========================================================================== */
+@media (min-width:901px){
+  .jbs-ft--compact .jbs-ft__row--desc,
+  .jbs-ft--compact .jbs-ft__row--utility{
+    height:44px !important;
+    min-height:44px !important;
+  }
+}
